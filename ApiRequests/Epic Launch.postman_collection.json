@@ -1,0 +1,436 @@
+{
+	"info": {
+		"_postman_id": "60e0f767-3697-410f-97a9-c71efab6df77",
+		"name": "Epic Launch",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36944502"
+	},
+	"item": [
+		{
+			"name": "Get Authorization Code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fhir.epic.com/interconnect-fhir-oauth/oauth2/authorize?scope=launch&response_type=code&redirect_uri=https%3A%2F%2Ffhir.epic.com%2Ftest%2Fsmart&client_id=d45049c3-3441-40ef-ab4d-b9cd86a17225&launch=GwWCqm4CCTxJaqJiROISsEsOqN7xrdixqTl2uWZhYxMAS7QbFEbtKgi7AN96fKc2kDYfaFrLi8LQivMkD0BY-942hYgGO0_6DfewP2iwH_pe6tR_-fRfiJ2WB_-1uwG0&state=abc123&aud=https%3A%2F%2Ffhir.epic.com%2Finterconnect-fhir-oauth%2Fapi%2Ffhir%2Fdstu2",
+					"protocol": "https",
+					"host": [
+						"fhir",
+						"epic",
+						"com"
+					],
+					"path": [
+						"interconnect-fhir-oauth",
+						"oauth2",
+						"authorize"
+					],
+					"query": [
+						{
+							"key": "scope",
+							"value": "launch"
+						},
+						{
+							"key": "response_type",
+							"value": "code"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "https%3A%2F%2Ffhir.epic.com%2Ftest%2Fsmart"
+						},
+						{
+							"key": "client_id",
+							"value": "d45049c3-3441-40ef-ab4d-b9cd86a17225"
+						},
+						{
+							"key": "launch",
+							"value": "GwWCqm4CCTxJaqJiROISsEsOqN7xrdixqTl2uWZhYxMAS7QbFEbtKgi7AN96fKc2kDYfaFrLi8LQivMkD0BY-942hYgGO0_6DfewP2iwH_pe6tR_-fRfiJ2WB_-1uwG0"
+						},
+						{
+							"key": "state",
+							"value": "abc123"
+						},
+						{
+							"key": "aud",
+							"value": "https%3A%2F%2Ffhir.epic.com%2Finterconnect-fhir-oauth%2Fapi%2Ffhir%2Fdstu2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://fhir.epic.com/interconnect-fhir-oauth/oauth2/token?grant_type=authorization_code&code=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ1cm46b2lkOmZoaXIiLCJjbGllbnRfaWQiOiIxMTZmNzI3ZC1jMjdkLTRjZDktYWJjZC0zNGM5NjZjNjBjYTEiLCJlcGljLmVjaSI6InVybjplcGlj",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://fhir.epic.com/interconnect-fhir-oauth/oauth2/token?grant_type=authorization_code&code=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ1cm46b2lkOmZoaXIiLCJjbGllbnRfaWQiOiIxMTZmNzI3ZC1jMjdkLTRjZDktYWJjZC0zNGM5NjZjNjBjYTEiLCJlcGljLmVjaSI6InVybjplcGljOk9wZW4uRXBpYy1jdXJyZW50IiwiZXBpYy5tZXRhZGF0YSI6Ik4wWF9RaU9UNlk4VmI2QzZabTZMNGtPOGVFdDBhTlhYdlJPYUVrM0JOMFFQem91X0F1aFJoZWFzX2lvYUxYTkRRbW1DVWpkV2FsZzhiYWt1VVJxN2Z4VXNLUkhEVGxuXzJ0WktxdTFRZ0pLRFBWUjZKU210R2FOd1d0WDlXWjRuIiwiZXBpYy50b2tlbnR5cGUiOiJjb2RlIiwiZXhwIjoxNzIxODk4MjIxLCJpYXQiOjE3MjE4OTc5MjEsImlzcyI6InVybjpvaWQ6ZmhpciIsImp0aSI6IjBjYzA1YmU3LThiOWEtNDFmZi04MjMzLThiYzA0ODI3YjE1ZSIsIm5iZiI6MTcyMTg5NzkyMSwic3ViIjoiZTNNQlhDT21jb0xLbDdheUxENTFBV0EzIn0.W55fp3E440ZonDf7B5jx_Ns-QzMxiHE4O0s8w9tacPCGy_ik7q3cmyqyk_FcP-xOjKbRpxKOXq76IjWPlssHxInk3s7lcve02Cwur_t04SdVJLPPjU__5pM0jFxrJyOVoDV4KteBP0o-6l4URZp04H1Dv-fGYR4sVtYT2eU4AKqi5x4mVWFx084Fsf_k496OLfeWnnOsFtxfJr5K6FLdnbCca0ya2qxJE_Wo6lgesnzqeRn333tJnEorewWT5lg4rPbDN7BLM2_hZ5iW2Tc6O7gEfKBRC9hepfa_WGUAYU0DZtpfT6aCgvFoeEQ_vKPGJkHCujDCf4iEJ88-odPPSw&client_id=116f727d-c27d-4cd9-abcd-34c966c60ca1&client_secret=nFzPOAhHhkdRNJWKJdp2+Y6nC/Tzgjax7mPzJnYeTNderrmNYNH+kHjhfI00R1xYzrC5BTeBL6p9BIAxkox6mDOg==&redirect_uri=https://72f4-106-194-8-116.ngrok-free.app/clinicians-or-administrative-users",
+					"protocol": "https",
+					"host": [
+						"fhir",
+						"epic",
+						"com"
+					],
+					"path": [
+						"interconnect-fhir-oauth",
+						"oauth2",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code"
+						},
+						{
+							"key": "code",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ1cm46b2lkOmZoaXIiLCJjbGllbnRfaWQiOiIxMTZmNzI3ZC1jMjdkLTRjZDktYWJjZC0zNGM5NjZjNjBjYTEiLCJlcGljLmVjaSI6InVybjplcGljOk9wZW4uRXBpYy1jdXJyZW50IiwiZXBpYy5tZXRhZGF0YSI6Ik4wWF9RaU9UNlk4VmI2QzZabTZMNGtPOGVFdDBhTlhYdlJPYUVrM0JOMFFQem91X0F1aFJoZWFzX2lvYUxYTkRRbW1DVWpkV2FsZzhiYWt1VVJxN2Z4VXNLUkhEVGxuXzJ0WktxdTFRZ0pLRFBWUjZKU210R2FOd1d0WDlXWjRuIiwiZXBpYy50b2tlbnR5cGUiOiJjb2RlIiwiZXhwIjoxNzIxODk4MjIxLCJpYXQiOjE3MjE4OTc5MjEsImlzcyI6InVybjpvaWQ6ZmhpciIsImp0aSI6IjBjYzA1YmU3LThiOWEtNDFmZi04MjMzLThiYzA0ODI3YjE1ZSIsIm5iZiI6MTcyMTg5NzkyMSwic3ViIjoiZTNNQlhDT21jb0xLbDdheUxENTFBV0EzIn0.W55fp3E440ZonDf7B5jx_Ns-QzMxiHE4O0s8w9tacPCGy_ik7q3cmyqyk_FcP-xOjKbRpxKOXq76IjWPlssHxInk3s7lcve02Cwur_t04SdVJLPPjU__5pM0jFxrJyOVoDV4KteBP0o-6l4URZp04H1Dv-fGYR4sVtYT2eU4AKqi5x4mVWFx084Fsf_k496OLfeWnnOsFtxfJr5K6FLdnbCca0ya2qxJE_Wo6lgesnzqeRn333tJnEorewWT5lg4rPbDN7BLM2_hZ5iW2Tc6O7gEfKBRC9hepfa_WGUAYU0DZtpfT6aCgvFoeEQ_vKPGJkHCujDCf4iEJ88-odPPSw"
+						},
+						{
+							"key": "client_id",
+							"value": "116f727d-c27d-4cd9-abcd-34c966c60ca1"
+						},
+						{
+							"key": "client_secret",
+							"value": "nFzPOAhHhkdRNJWKJdp2+Y6nC/Tzgjax7mPzJnYeTNderrmNYNH+kHjhfI00R1xYzrC5BTeBL6p9BIAxkox6mDOg=="
+						},
+						{
+							"key": "redirect_uri",
+							"value": "https://72f4-106-194-8-116.ngrok-free.app/clinicians-or-administrative-users"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "R4 NutritionOrder",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ1cm46b2lkOmZoaXIiLCJjbGllbnRfaWQiOiIxMTZmNzI3ZC1jMjdkLTRjZDktYWJjZC0zNGM5NjZjNjBjYTEiLCJlcGljLmVjaSI6InVybjplcGljOk9wZW4uRXBpYy1jdXJyZW50IiwiZXBpYy5tZXRhZGF0YSI6Ik9GWGZoenVTZVFhcE9aVW8yanZqZ0x1Z0M2X2J0R1ZWTjNNUUxEY3JJcms2djlWZl9McWhxU1diSUNrLUNIX1FyMmlKSnVuTldFVWF1NEs2b3RUMVFRNlRXbERER3Vxb0IzZGxZMXdoZ2hGc2hIS3FfdU9uWjR1OEdYdnlhM095IiwiZXBpYy50b2tlbnR5cGUiOiJhY2Nlc3MiLCJleHAiOjE3MjMxOTM4MjksImlhdCI6MTcyMzE5MDIyOSwiaXNzIjoidXJuOm9pZDpmaGlyIiwianRpIjoiMDAwMDI2OWEtYzcyNC00MzRlLTk1YTMtYjYzN2ZkZWRlODAxIiwibmJmIjoxNzIzMTkwMjI5LCJzdWIiOiJldk5wLUtoWXdPT3FBWm4xcFoyZW51QTMifQ.EDvl9Yn1Ypwzq0o_3c0k-jQzrbzau9GXSGeweJck5I9gV84ndvHmRqMiB4qChfRg7plk8zNQhB8_CBHe8hzpgK7bkeulmlhmum_FkAWPLpIZ5vlcuHS5SmjZ5whcqlLKlhgYrd0CuI4mmZfXr7n3oc5VQwbwZlO28CNSlZ9bLBQbSeyCMHPsZrAs1JZLX1PD3fn6qs1Zsx2PaqFa4B3tebsGGcRJauVR7TvX1V8cdpdEXfEZpAsP83pACKvfKtZNR5EOt2oViIdpvBbAZolRmxaZR8IUBlBkn5kFPbZztmozHCoUTQCQusRsrLDgmqOg-YTAFF_FXmMFJhcELajBYQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/fhir+json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"resourceType\": \"NutritionOrder\",\r\n  \"status\": \"active\",\r\n  \"intent\": \"order\",\r\n  \"patient\": {\r\n    \"reference\": \"Patient/12345\"\r\n  },\r\n  \"dateTime\": \"2024-08-09T12:00:00Z\",\r\n  \"orderer\": {\r\n    \"reference\": \"Practitioner/67890\"\r\n  },\r\n  \"allergyIntolerance\": [\r\n    {\r\n      \"reference\": \"AllergyIntolerance/1\"\r\n    }\r\n  ],\r\n  \"foodPreferenceModifier\": [\r\n    {\r\n      \"coding\": [\r\n        {\r\n          \"system\": \"http://snomed.info/sct\",\r\n          \"code\": \"409755006\",\r\n          \"display\": \"Kosher diet\"\r\n        }\r\n      ]\r\n    }\r\n  ],\r\n  \"oralDiet\": {\r\n    \"type\": [\r\n      {\r\n        \"coding\": [\r\n          {\r\n            \"system\": \"http://snomed.info/sct\",\r\n            \"code\": \"226208002\",\r\n            \"display\": \"Low sodium diet\"\r\n          }\r\n        ]\r\n      }\r\n    ],\r\n    \"schedule\": [\r\n      {\r\n        \"repeat\": {\r\n          \"frequency\": 3,\r\n          \"period\": 1,\r\n          \"periodUnit\": \"d\"\r\n        }\r\n      }\r\n    ],\r\n    \"nutrient\": [\r\n      {\r\n        \"modifier\": {\r\n          \"coding\": [\r\n            {\r\n              \"system\": \"http://snomed.info/sct\",\r\n              \"code\": \"39972003\",\r\n              \"display\": \"Sodium\"\r\n            }\r\n          ]\r\n        },\r\n        \"amount\": {\r\n          \"value\": 2,\r\n          \"unit\": \"g\",\r\n          \"system\": \"http://unitsofmeasure.org\",\r\n          \"code\": \"g\"\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/NutritionOrder",
+					"protocol": "https",
+					"host": [
+						"fhir",
+						"epic",
+						"com"
+					],
+					"path": [
+						"interconnect-fhir-oauth",
+						"api",
+						"FHIR",
+						"R4",
+						"NutritionOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "R4 Create DocumentReference",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ1cm46b2lkOmZoaXIiLCJjbGllbnRfaWQiOiIxMTZmNzI3ZC1jMjdkLTRjZDktYWJjZC0zNGM5NjZjNjBjYTEiLCJlcGljLmVjaSI6InVybjplcGljOk9wZW4uRXBpYy1jdXJyZW50IiwiZXBpYy5tZXRhZGF0YSI6IndDLUxWWEMzM2Q2THNrUEVuV0ZEQU1reW1wQmxka0oxSjBtUVktVFNMS2tYc1NKSXZ4YmN3NHlQQXdKY1cwM2k5LTBfMFowQnhEUnMzU2V6VU94ZUI1MU5wTHIzVjIzZUNKc1c5SFc3aHBweGoxaGx5Q2VoaDJDSmJuaGVwa3dOIiwiZXBpYy50b2tlbnR5cGUiOiJhY2Nlc3MiLCJleHAiOjE3MjM2MTQ5NzksImlhdCI6MTcyMzYxMTM3OSwiaXNzIjoidXJuOm9pZDpmaGlyIiwianRpIjoiZDdmZGJhYzMtOTQzZi00NTZiLTlmYzEtZGI2MTdhMzBjZDExIiwibmJmIjoxNzIzNjExMzc5LCJzdWIiOiJldk5wLUtoWXdPT3FBWm4xcFoyZW51QTMifQ.GZdnQl6TPZs6oVdI4IhYbUI__YfJ12nVD1DcsiKtLet0lK5Isd60WgrZSONM-1ejNTtJRzgP-Zx43HrTGmRyxnbWwNgD43JmVOPgaWyg-n2RpLIt1JE4TfhybaJek8JihYjWZcUo7MOWW5hfc1pe2q5b7_Sog6RFvuSrEfBnBcYibukIOkxoRYtL2GBCsKWoRh6wDM4vpl5vIu5OxwWO6O3QfgSl_pMdtW1_xzKfCNyezQ-OS4TNBRyrtADr19X2JUkZtobybsAYbhL8WD4r8IRg9j9E19xrCPRu5mulWdPweo9dnAy6vIK2RX-3qC9fGNRqRTdJ4XyF2T1iibU3IA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"resourceType\": \"DocumentReference\",\r\n  \"docStatus\": \"final\",\r\n  \"type\": {\r\n    \"coding\": [\r\n      {\r\n        \"system\": \"http://loinc.org\",\r\n        \"code\": \"11488-4\",\r\n        \"display\": \"Consultation Note\"\r\n      }\r\n    ],\r\n    \"text\": \"Consultation Note\"\r\n  },\r\n  \"subject\": {\r\n    \"reference\": \"Patient/eXbMln3hu0PfFrpv2HgVHyg3\"\r\n  },\r\n  \"content\": [\r\n    {\r\n      \"attachment\": {\r\n        \"contentType\": \"text/plain\",\r\n        \"data\": \"TG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNlY3RldHVyIGFkaXBpc2NpbmcgZWxpdC4gVml2YW11cyBydXRydW0gZWxpdCBlZ2V0IG5lcXVlIG1vbGVzdGllLCBub24gbHVjdHVzIG9kaW8gcGhhcmV0cmEuIEluIG1hdHRpcyBhIG9yY2kgYXQgcGVsbGVudGVzcXVlLiBFdGlhbSBibGFuZGl0IGVsZW1lbnR1bSBkaWduaXNzaW0uIE1vcmJpIGNvbnZhbGxpcyBwdXJ1cyBzaXQgYW1ldCBsb3JlbSBjb25ndWUgY29uZGltZW50dW0uIERvbmVjIGVmZmljaXR1ciB0b3J0b3IgdXQgY29uc2VxdWF0IGNvbmd1ZS4gTW9yYmkgZWxlaWZlbmQgY29udmFsbGlzIG9yY2kgZXQgdHJpc3RpcXVlLiBNYXVyaXMgbWFnbmEgZGlhbSwgYWNjdW1zYW4gdXQgcGxhY2VyYXQgZXUsIG1heGltdXMgaW4gcmlzdXMuIFBoYXNlbGx1cyBub24gbWV0dXMgdmVsIG1hdXJpcyBwb3J0dGl0b3IgdmFyaXVzLiBOdWxsYW0gZWdldCBsYWN1cyBjb25ndWUsIGx1Y3R1cyBsaWJlcm8gc2NlbGVyaXNxdWUsIHBvcnRhIG1pLiBEdWlzIGVsZW1lbnR1bSBsYWN1cyBmYWNpbGlzaXMgZmVsaXMgaW50ZXJkdW0sIHZpdGFlIHZlc3RpYnVsdW0gbWkgdWxsYW1jb3JwZXIuIE1hdXJpcyBsb2JvcnRpcyBncmF2aWRhIGxvYm9ydGlzLiBJbnRlZ2VyIGluIGZhY2lsaXNpcyBsb3JlbSwgYSBibGFuZGl0IGVyb3MuIERvbmVjIHRlbXBvciBqdXN0byBzaXQgYW1ldCBudWxsYSBtYXhpbXVzIGxhY2luaWEu\"\r\n      }\r\n    }\r\n  ],\r\n  \"context\": {\r\n    \"encounter\": [{\r\n      \"reference\": \"Encounter/e0EueTd5RhhXyykueyj0Axg3\"\r\n    }]\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/DocumentReference",
+					"protocol": "https",
+					"host": [
+						"fhir",
+						"epic",
+						"com"
+					],
+					"path": [
+						"interconnect-fhir-oauth",
+						"api",
+						"FHIR",
+						"R4",
+						"DocumentReference"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Clinical Notes",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ1cm46b2lkOjEuMi44NDAuMTE0MzUwLjEuMTMuMC4xLjcuMy42ODg4ODQuMTAwIiwiY2xpZW50X2lkIjoiMTE2ZjcyN2QtYzI3ZC00Y2Q5LWFiY2QtMzRjOTY2YzYwY2ExIiwiZXBpYy5lY2kiOiJ1cm46ZXBpYzpPcGVuLkVwaWMtY3VycmVudCIsImVwaWMubWV0YWRhdGEiOiJjR2V5bllHUGZzdF95N1lIRFFfTmpDTU10aHAwUkRodlE2RVNZaHhHU1JyTzkyaFBYX01aRVphUnU3MDFrOUVWcmdBV3c0dFNHc0hzbl9SRlUtRXhSenRYdGFsS1gxajEtaGFvZ1hUVVpzenVaZWoyazRMUFFuT1BZOVFVdG4tSSIsImVwaWMudG9rZW50eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI0ODIzOTkyLCJpYXQiOjE3MjQ4MjAzOTIsImlzcyI6InVybjpvaWQ6MS4yLjg0MC4xMTQzNTAuMS4xMy4wLjEuNy4zLjY4ODg4NC4xMDAiLCJqdGkiOiJkNjhmZGVjZi02NzJhLTQ4OWMtYjY1ZS0yN2JhYmVlZmQ2NzkiLCJuYmYiOjE3MjQ4MjAzOTIsInN1YiI6ImV2TnAtS2hZd09PcUFabjFwWjJlbnVBMyJ9.oxXeLpJ6mWbJ2jQY9i4m-cH3x4TV7V-0mD3YTJBBfETSm1ZSd_rwFQmmw4XekAb-JWMB28EnDYjSo36M-UXltWQYtMZxKMUfaBJ1e5arSY1maZGUQlucaYUzxYFYGhQ2YM6fLQacFixcWH91cysVZYmMN6CMj3Pmx_l2qiMLYKdY1U1P0wBB6XK-62EldUqee1ubnLbGbpY8h0sZOaWAnj32X0-dRzrO78xFd3G7GSB2QxqIAJvEB52htte_3bcJPFI60HivV1Db5H2DT60nnvABD4-LWiRGLKLyPyUW7kQkG8SM3vRMzn4FudER55KfGUR0znzsRf2nt1Hpve0MNg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/DocumentReference?category=clinical-note&date=&docstatus=&encounter=&patient=eXFljJT8WxVd2PjwvPAGR1A3&period=&subject=&type=",
+					"protocol": "https",
+					"host": [
+						"fhir",
+						"epic",
+						"com"
+					],
+					"path": [
+						"interconnect-fhir-oauth",
+						"api",
+						"FHIR",
+						"R4",
+						"DocumentReference"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "clinical-note"
+						},
+						{
+							"key": "date",
+							"value": ""
+						},
+						{
+							"key": "docstatus",
+							"value": ""
+						},
+						{
+							"key": "encounter",
+							"value": ""
+						},
+						{
+							"key": "patient",
+							"value": "eXFljJT8WxVd2PjwvPAGR1A3"
+						},
+						{
+							"key": "period",
+							"value": ""
+						},
+						{
+							"key": "subject",
+							"value": ""
+						},
+						{
+							"key": "type",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read Binary",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ1cm46b2lkOjEuMi44NDAuMTE0MzUwLjEuMTMuMC4xLjcuMy42ODg4ODQuMTAwIiwiY2xpZW50X2lkIjoiMTE2ZjcyN2QtYzI3ZC00Y2Q5LWFiY2QtMzRjOTY2YzYwY2ExIiwiZXBpYy5lY2kiOiJ1cm46ZXBpYzpPcGVuLkVwaWMtY3VycmVudCIsImVwaWMubWV0YWRhdGEiOiJ0OHZEN3Bld3ltWE5NVEtFa1MwdXJCWEE5a21ha0N4QVdUaTYwYTlvU01WanhkVXhnWWJyRDVzdW1TRTl4dTRGN3N5dVVRZWhDbW1PcGdOVHU0cDBzaXVXWExjUnNYVlpRMy03MmlaaGd5V3Y0UHZwcnRpVXVTWnlMcllFMVFaSyIsImVwaWMudG9rZW50eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI0ODI4NDc4LCJpYXQiOjE3MjQ4MjQ4NzgsImlzcyI6InVybjpvaWQ6MS4yLjg0MC4xMTQzNTAuMS4xMy4wLjEuNy4zLjY4ODg4NC4xMDAiLCJqdGkiOiJjMTQ4MTZmYi03MWMwLTQ2MmUtODI1YS0xOTkyMjIxZWRhMTkiLCJuYmYiOjE3MjQ4MjQ4NzgsInN1YiI6ImV2TnAtS2hZd09PcUFabjFwWjJlbnVBMyJ9.XMSjfG4rwP04eolcRsDxJDdnGB5Qg-lz870cSfxW7Vale9Lt6qfQJiFj1-dMRgitZuOBM_rbL-_hMQ2pcnPTwBnnEVlWI7YDRHxVZR7Zo65yBPlcLhkEQL3Z8XSH3oP7qVFp0sgdBlPn3k64AlvMvU5CJxUwRASz7uUtkt7CZEzmA8U1BkoF1GiLwWGZ5xBQyktFgHLmhkRio6OVLW5dgbAjj7sO7HlrdbxcmmWwmlZeB7fDJW3CRG-yb0_Cbb6FAKDFtpCXCLsr0ACCzJGCHqi7t9DoYPVmEZb_ZbMI5qaX1XJEl7aFofxKRfyKYxl_tUI47h8ZDWxxmZ7aZDX2aw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/fhir+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Binary/e9o77LsonMcTjmBJssnGKIw3",
+					"protocol": "https",
+					"host": [
+						"fhir",
+						"epic",
+						"com"
+					],
+					"path": [
+						"interconnect-fhir-oauth",
+						"api",
+						"FHIR",
+						"R4",
+						"Binary",
+						"e9o77LsonMcTjmBJssnGKIw3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "R4 Read Specific Document",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ1cm46b2lkOjEuMi44NDAuMTE0MzUwLjEuMTMuMC4xLjcuMy42ODg4ODQuMTAwIiwiY2xpZW50X2lkIjoiMTE2ZjcyN2QtYzI3ZC00Y2Q5LWFiY2QtMzRjOTY2YzYwY2ExIiwiZXBpYy5lY2kiOiJ1cm46ZXBpYzpPcGVuLkVwaWMtY3VycmVudCIsImVwaWMubWV0YWRhdGEiOiJjR2V5bllHUGZzdF95N1lIRFFfTmpDTU10aHAwUkRodlE2RVNZaHhHU1JyTzkyaFBYX01aRVphUnU3MDFrOUVWcmdBV3c0dFNHc0hzbl9SRlUtRXhSenRYdGFsS1gxajEtaGFvZ1hUVVpzenVaZWoyazRMUFFuT1BZOVFVdG4tSSIsImVwaWMudG9rZW50eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI0ODIzOTkyLCJpYXQiOjE3MjQ4MjAzOTIsImlzcyI6InVybjpvaWQ6MS4yLjg0MC4xMTQzNTAuMS4xMy4wLjEuNy4zLjY4ODg4NC4xMDAiLCJqdGkiOiJkNjhmZGVjZi02NzJhLTQ4OWMtYjY1ZS0yN2JhYmVlZmQ2NzkiLCJuYmYiOjE3MjQ4MjAzOTIsInN1YiI6ImV2TnAtS2hZd09PcUFabjFwWjJlbnVBMyJ9.oxXeLpJ6mWbJ2jQY9i4m-cH3x4TV7V-0mD3YTJBBfETSm1ZSd_rwFQmmw4XekAb-JWMB28EnDYjSo36M-UXltWQYtMZxKMUfaBJ1e5arSY1maZGUQlucaYUzxYFYGhQ2YM6fLQacFixcWH91cysVZYmMN6CMj3Pmx_l2qiMLYKdY1U1P0wBB6XK-62EldUqee1ubnLbGbpY8h0sZOaWAnj32X0-dRzrO78xFd3G7GSB2QxqIAJvEB52htte_3bcJPFI60HivV1Db5H2DT60nnvABD4-LWiRGLKLyPyUW7kQkG8SM3vRMzn4FudER55KfGUR0znzsRf2nt1Hpve0MNg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/DocumentReference/e6Z6mwcLg9j7jsL6gKs2eSA3",
+					"protocol": "https",
+					"host": [
+						"fhir",
+						"epic",
+						"com"
+					],
+					"path": [
+						"interconnect-fhir-oauth",
+						"api",
+						"FHIR",
+						"R4",
+						"DocumentReference",
+						"e6Z6mwcLg9j7jsL6gKs2eSA3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "R4 Search Encounter",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ1cm46b2lkOmZoaXIiLCJjbGllbnRfaWQiOiIxMTZmNzI3ZC1jMjdkLTRjZDktYWJjZC0zNGM5NjZjNjBjYTEiLCJlcGljLmVjaSI6InVybjplcGljOk9wZW4uRXBpYy1jdXJyZW50IiwiZXBpYy5tZXRhZGF0YSI6IndDLUxWWEMzM2Q2THNrUEVuV0ZEQU1reW1wQmxka0oxSjBtUVktVFNMS2tYc1NKSXZ4YmN3NHlQQXdKY1cwM2k5LTBfMFowQnhEUnMzU2V6VU94ZUI1MU5wTHIzVjIzZUNKc1c5SFc3aHBweGoxaGx5Q2VoaDJDSmJuaGVwa3dOIiwiZXBpYy50b2tlbnR5cGUiOiJhY2Nlc3MiLCJleHAiOjE3MjM2MTQ5NzksImlhdCI6MTcyMzYxMTM3OSwiaXNzIjoidXJuOm9pZDpmaGlyIiwianRpIjoiZDdmZGJhYzMtOTQzZi00NTZiLTlmYzEtZGI2MTdhMzBjZDExIiwibmJmIjoxNzIzNjExMzc5LCJzdWIiOiJldk5wLUtoWXdPT3FBWm4xcFoyZW51QTMifQ.GZdnQl6TPZs6oVdI4IhYbUI__YfJ12nVD1DcsiKtLet0lK5Isd60WgrZSONM-1ejNTtJRzgP-Zx43HrTGmRyxnbWwNgD43JmVOPgaWyg-n2RpLIt1JE4TfhybaJek8JihYjWZcUo7MOWW5hfc1pe2q5b7_Sog6RFvuSrEfBnBcYibukIOkxoRYtL2GBCsKWoRh6wDM4vpl5vIu5OxwWO6O3QfgSl_pMdtW1_xzKfCNyezQ-OS4TNBRyrtADr19X2JUkZtobybsAYbhL8WD4r8IRg9j9E19xrCPRu5mulWdPweo9dnAy6vIK2RX-3qC9fGNRqRTdJ4XyF2T1iibU3IA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Encounter?patient=eXFljJT8WxVd2PjwvPAGR1A3",
+					"protocol": "https",
+					"host": [
+						"fhir",
+						"epic",
+						"com"
+					],
+					"path": [
+						"interconnect-fhir-oauth",
+						"api",
+						"FHIR",
+						"R4",
+						"Encounter"
+					],
+					"query": [
+						{
+							"key": "patient",
+							"value": "eXFljJT8WxVd2PjwvPAGR1A3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Observation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ1cm46b2lkOjEuMi44NDAuMTE0MzUwLjEuMTMuMC4xLjcuMy42ODg4ODQuMTAwIiwiY2xpZW50X2lkIjoiMTE2ZjcyN2QtYzI3ZC00Y2Q5LWFiY2QtMzRjOTY2YzYwY2ExIiwiZXBpYy5lY2kiOiJ1cm46ZXBpYzpPcGVuLkVwaWMtY3VycmVudCIsImVwaWMubWV0YWRhdGEiOiJydHRkc0R5eVY1MXJ0bzFJdktMRmR5ZWhEMElfU0pNRGRENG51WElVNThYZUZfNVlrVTlmWkoxOGVETno4cC11VEdGeE1wTC1rbzFhaElHNEE5SGhBYUhKcHRESUdaTkNlU3hySThpd1d4TzczNVIxcUQwcEZkQVdJd0RsZ0hhcyIsImVwaWMudG9rZW50eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI0NjY0Nzc1LCJpYXQiOjE3MjQ2NjExNzUsImlzcyI6InVybjpvaWQ6MS4yLjg0MC4xMTQzNTAuMS4xMy4wLjEuNy4zLjY4ODg4NC4xMDAiLCJqdGkiOiI1NjEwOTBiMy04YmEzLTQ5MmUtOWVhYS03OTg0M2EzZjQ1MjYiLCJuYmYiOjE3MjQ2NjExNzUsInN1YiI6ImV2TnAtS2hZd09PcUFabjFwWjJlbnVBMyJ9.YwaxQ4sjHXOqzCkExgS7zdPnBkRzqRgN5xl97qJOXGlBAoadloRgGajTDltYOgQBOj8s5Ax2EBGGBHC4QjRJTGtcSaTdHA0y2PfFwk9t1xzxqjiXjnIL7d3cUBNYWHaP1uiRYcLuueVxUTTz-qhiYBH97jXd-e8eIRo1v8XPNUNcNokU6bjHRYeMn0C8iR9JfMV2kGByyYcP1zJrOkxyh5RtzSD200iTkMlTc-N5UCyjUvix7vXDn47yEAaGEyW42RpksYTtm16SOIhZu1xo4Qtm1ZbED2R90uVT7lswimIp8Kn8D_48SIbV1-9GfCfX1-UqDQHICOOJeHb0gaJVKw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"resourceType\": \"Observation\",\r\n    \"category\": [\r\n        {\r\n            \"coding\": [\r\n                {\r\n                    \"system\": \"http://hl7.org/fhir/observation-category\",\r\n                    \"code\": \"vital-signs\",\r\n                    \"display\": \"Vital Signs\"\r\n                }\r\n            ],\r\n            \"text\": \"Vital Signs\"\r\n        }\r\n    ],\r\n    \"code\": {\r\n        \"coding\": [\r\n            {\r\n                \"system\": \"urn:oid:1.2.840.114350.1.13.0.1.7.2.707679\",\r\n                \"code\": \"14\",\r\n                \"display\": \"Weight\"\r\n            }\r\n        ],\r\n        \"text\": \"Weight\"\r\n    },\r\n    \"encounter\": {\r\n        \"reference\": \"Encounter/eajyq3tHTNbfPFZexvvMthA3\"\r\n    },\r\n    \"subject\": {\r\n        \"reference\": \"Patient/eXFljJT8WxVd2PjwvPAGR1A3\",\r\n        \"display\": \"Henry Clin Doc\"\r\n    },\r\n    \"effectiveDateTime\": \"2019-07-29T12:30:00Z\",\r\n    \"valueQuantity\": {\r\n        \"value\": \"65\",\r\n        \"unit\": \"kg\"\r\n    },\r\n    \"note\": [\r\n        {\r\n            \"text\": \"Filed via FHIR\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4/Observation",
+					"protocol": "https",
+					"host": [
+						"fhir",
+						"epic",
+						"com"
+					],
+					"path": [
+						"interconnect-fhir-oauth",
+						"api",
+						"FHIR",
+						"R4",
+						"Observation"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

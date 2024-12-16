@@ -1,0 +1,723 @@
+{
+	"info": {
+		"_postman_id": "59afa057-c38c-4e88-9d9e-7c9e4d4e2444",
+		"name": "Open Epic",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36944502"
+	},
+	"item": [
+		{
+			"name": "Generate Epic Token",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/method2",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"method2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Epic Access Token",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/openepic/get-epic-access-token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"openepic",
+						"get-epic-access-token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Koyl Api for Get Patient By Id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "epicAccessToken",
+						"value": "{{epicAccessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/openepic/patient/:patientId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"openepic",
+						"patient",
+						":patientId"
+					],
+					"variable": [
+						{
+							"key": "patientId",
+							"value": "erXuFYUfucBZaryVksYEcMg3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Patient",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "epicAccessToken",
+						"value": "{{epicAccessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/openepic/search-patient?birthdate=1948-07-07&family=Lopez&gender=female&given=Camila&telecom=469-555-5555",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"openepic",
+						"search-patient"
+					],
+					"query": [
+						{
+							"key": "birthdate",
+							"value": "1948-07-07"
+						},
+						{
+							"key": "family",
+							"value": "Lopez"
+						},
+						{
+							"key": "gender",
+							"value": "female"
+						},
+						{
+							"key": "given",
+							"value": "Camila"
+						},
+						{
+							"key": "telecom",
+							"value": "469-555-5555"
+						},
+						{
+							"key": "_id",
+							"value": "erXuFYUfucBZaryVksYEcMg3",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Epic Patient After Search",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "     {\r\n            // \"userId\":\"6690cda8b8d1c23755cd86c0\",\r\n            \"epicPatientId\": \"eovSKnwDlsv-8MsEzCJO3BA3\",\r\n            \"name\": [\r\n                {\r\n                    \"use\": \"official\",\r\n                    \"text\": \"Raj Icu\",\r\n                    \"family\": \"Icu\",\r\n                    \"given\": [\r\n                        \"Raj\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"use\": \"usual\",\r\n                    \"text\": \"Raj Icu\",\r\n                    \"family\": \"Icu\",\r\n                    \"given\": [\r\n                        \"Raj\"\r\n                    ]\r\n                }\r\n            ],\r\n            \"telecom\": [\r\n                {\r\n                    \"system\": \"phone\",\r\n                    \"value\": \"485-985-8589\",\r\n                    \"use\": \"home\"\r\n                }\r\n            ],\r\n            \"gender\": \"male\",\r\n            \"birthDate\": \"1955-02-09\",\r\n            \"address\": [\r\n                {\r\n                    \"use\": \"home\",\r\n                    \"line\": [\r\n                        \"1979 Milky Way\"\r\n                    ],\r\n                    \"city\": \"Madison\",\r\n                    \"state\": \"WI\",\r\n                    \"postalCode\": \"53715\",\r\n                    \"country\": \"US\"\r\n                }\r\n            ],\r\n            \"contact\": [\r\n                {\r\n                    \"relationship\": [\r\n                        {\r\n                            \"coding\": [\r\n                                {\r\n                                    \"system\": \"urn:oid:1.2.840.114350.1.13.0.1.7.4.827665.1000\",\r\n                                    \"code\": \"3\",\r\n                                    \"display\": \"Father\"\r\n                                }\r\n                            ],\r\n                            \"text\": \"Father\"\r\n                        }\r\n                    ],\r\n                    \"name\": {\r\n                        \"use\": \"usual\",\r\n                        \"text\": \"Reddy,Neil\"\r\n                    },\r\n                    \"telecom\": [\r\n                        {\r\n                            \"system\": \"phone\",\r\n                            \"value\": \"548-856-8965\",\r\n                            \"use\": \"home\"\r\n                        }\r\n                    ]\r\n                }\r\n            ]\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/openepic/save-patient",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"openepic",
+						"save-patient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Patient Record From Database",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/openepic/get-patient-record-from-db/:userId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"openepic",
+						"get-patient-record-from-db",
+						":userId"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "6690cda8b8d1c23755cd86c0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Patient Medical History from Epic",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "epicAccessToken",
+						"value": "{{epicAccessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/openepic/get-patient-medical-history/:patientId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"openepic",
+						"get-patient-medical-history",
+						":patientId"
+					],
+					"variable": [
+						{
+							"key": "patientId",
+							"value": "eovSKnwDlsv-8MsEzCJO3BA3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Patient Medical History",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "epicAccessToken",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ1cm46b2lkOmZoaXIiLCJjbGllbnRfaWQiOiI3NDUwOGE0ZS0zYmIzLTQyNjctODdhOC03MDM1M2Q3MGM2N2YiLCJlcGljLmVjaSI6InVybjplcGljOk9wZW4uRXBpYy1jdXJyZW50IiwiZXBpYy5tZXRhZGF0YSI6Im5iNElHcE9WWFFHV2JhaGVpQ0R3VFh6dzJFbVpBUW5LU3RtWTZadG1kelQ2U0xxd2lya3J4WVkxalVmYWlhYXIyU1FiVkUxc0tmVFZvelZ4NTlpQUJHVnQ1ZnQybk5GcW10Rm1SYTVFcTlKVVB3eHdNTk12OEhzR19sOXBWTzQ0IiwiZXBpYy50b2tlbnR5cGUiOiJhY2Nlc3MiLCJleHAiOjE3MjEyODI4ODMsImlhdCI6MTcyMTI3OTI4MywiaXNzIjoidXJuOm9pZDpmaGlyIiwianRpIjoiNWUwNmI2ZWEtM2MwNC00MzI0LTljOTQtMjA4ZjkxMzI5YWQ5IiwibmJmIjoxNzIxMjc5MjgzLCJzdWIiOiJldk5wLUtoWXdPT3FBWm4xcFoyZW51QTMifQ.CNFqcVVgwfyye3S0AnZ2KGlew4D7vL4rwumW45uAU02c46GhBe01zr3NgrFX-6WlQ0A3n66xGoAMZU_9nHoUwP_QK5iTpj0MwUJQ5spoDby-HPQZc4Tf-xhRFQIxzrGe-JEFlktanMAKypLSE7RzPcsf2lV7PhSrcPQRqoF2ZCrV852blTfgNBqqB4moAfQcDtSu8Ru0kvznYOhfnjCIanHQwkAmUL78xKfzfqh5F27QlvEUtDJywUuhDrRnJXiIDDw6hRp53aOExuCmk1q8D9DH0-av9mJCR9GH1_VNtXPJTBjOcK6QfkYDwgRP-Wo6oBpkCuTGbhA3YQ0bTb8cXw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n      \"medicalHistory\": [\r\n        {\r\n            \"coding\": [\r\n                {\r\n                    \"system\": \"http://snomed.info/sct\",\r\n                    \"code\": \"73211009\",\r\n                    \"display\": \"Diabetes mellitus (disorder)\"\r\n                },\r\n                {\r\n                    \"system\": \"http://hl7.org/fhir/sid/icd-9-cm\",\r\n                    \"code\": \"250.00\",\r\n                    \"display\": \"Type II or unspecified type diabetes mellitus without mention of complication, not stated as uncontrolled\"\r\n                },\r\n                {\r\n                    \"system\": \"http://hl7.org/fhir/sid/icd-10-cm\",\r\n                    \"code\": \"E11.9\",\r\n                    \"display\": \"Type 2 diabetes mellitus without complications\"\r\n                }\r\n            ],\r\n            \"text\": \"Diabetes mellitus (CMS/HCC)\"\r\n        },\r\n        {\r\n            \"coding\": [\r\n                {\r\n                    \"system\": \"http://snomed.info/sct\",\r\n                    \"code\": \"15167005\",\r\n                    \"display\": \"Alcohol abuse (disorder)\"\r\n                },\r\n                {\r\n                    \"system\": \"http://hl7.org/fhir/sid/icd-9-cm\",\r\n                    \"code\": \"305.00\",\r\n                    \"display\": \"Alcohol abuse, unspecified\"\r\n                },\r\n                {\r\n                    \"system\": \"http://hl7.org/fhir/sid/icd-10-cm\",\r\n                    \"code\": \"F10.10\",\r\n                    \"display\": \"Alcohol abuse, uncomplicated\"\r\n                }\r\n            ],\r\n            \"text\": \"Alcohol abuse\"\r\n        },\r\n        {\r\n            \"coding\": [\r\n                {\r\n                    \"system\": \"http://snomed.info/sct\",\r\n                    \"code\": \"38341003\",\r\n                    \"display\": \"Hypertensive disorder, systemic arterial (disorder)\"\r\n                },\r\n                {\r\n                    \"system\": \"http://hl7.org/fhir/sid/icd-9-cm\",\r\n                    \"code\": \"401.9\",\r\n                    \"display\": \"Unspecified essential hypertension\"\r\n                },\r\n                {\r\n                    \"system\": \"http://hl7.org/fhir/sid/icd-10-cm\",\r\n                    \"code\": \"I10\",\r\n                    \"display\": \"Essential (primary) hypertension\"\r\n                }\r\n            ],\r\n            \"text\": \"Hypertension\"\r\n        },\r\n        {\r\n            \"coding\": [\r\n                {\r\n                    \"system\": \"http://snomed.info/sct\",\r\n                    \"code\": \"414916001\",\r\n                    \"display\": \"Obesity (disorder)\"\r\n                },\r\n                {\r\n                    \"system\": \"http://hl7.org/fhir/sid/icd-9-cm\",\r\n                    \"code\": \"278.00\",\r\n                    \"display\": \"Obesity, unspecified\"\r\n                },\r\n                {\r\n                    \"system\": \"http://hl7.org/fhir/sid/icd-10-cm\",\r\n                    \"code\": \"E66.9\",\r\n                    \"display\": \"Obesity, unspecified\"\r\n                }\r\n            ],\r\n            \"text\": \"Obesity\"\r\n        },\r\n        {\r\n            \"coding\": [\r\n                {\r\n                    \"system\": \"http://snomed.info/sct\",\r\n                    \"code\": \"110483000\",\r\n                    \"display\": \"Tobacco user (finding)\"\r\n                },\r\n                {\r\n                    \"system\": \"http://hl7.org/fhir/sid/icd-9-cm\",\r\n                    \"code\": \"305.1\",\r\n                    \"display\": \"Tobacco use disorder\"\r\n                },\r\n                {\r\n                    \"system\": \"http://hl7.org/fhir/sid/icd-10-cm\",\r\n                    \"code\": \"F17.200\",\r\n                    \"display\": \"Nicotine dependence, unspecified, uncomplicated\"\r\n                }\r\n            ],\r\n            \"text\": \"Tobacco use disorder\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/openepic/save-patient-medical-history/:userId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"openepic",
+						"save-patient-medical-history",
+						":userId"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "6690cda8b8d1c23755cd86c0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Epic Medication Request Search (Orders) (R4)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "epicAccessToken",
+						"value": "{{epicAccessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/openepic/search-medication-request-search-orders?patient=eovSKnwDlsv-8MsEzCJO3BA3&subject=&category=&status=&authoredon=&date=&intent=",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"openepic",
+						"search-medication-request-search-orders"
+					],
+					"query": [
+						{
+							"key": "patient",
+							"value": "eovSKnwDlsv-8MsEzCJO3BA3"
+						},
+						{
+							"key": "subject",
+							"value": ""
+						},
+						{
+							"key": "category",
+							"value": ""
+						},
+						{
+							"key": "status",
+							"value": ""
+						},
+						{
+							"key": "authoredon",
+							"value": ""
+						},
+						{
+							"key": "date",
+							"value": ""
+						},
+						{
+							"key": "intent",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Medication Order Search (DSTU2) ",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "epicAccessToken",
+						"value": "{{epicAccessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/openepic/get-medicine-order-from-epic?patient=eovSKnwDlsv-8MsEzCJO3BA3&subject=",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"openepic",
+						"get-medicine-order-from-epic"
+					],
+					"query": [
+						{
+							"key": "patient",
+							"value": "eovSKnwDlsv-8MsEzCJO3BA3"
+						},
+						{
+							"key": "status",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "_id",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "subject",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Medication Request Save Orders",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"medication\": {\r\n        \"stopped\": [\r\n            {\r\n                \"status\": \"stopped\",\r\n                \"medicationReference\": {\r\n                    \"reference\": \"Medication/efV4DRDV9zfqjYF1WG.978lRrsolsF59SD2nZWxUxHSWnn57HMhTy-1G6syNd6MGl3\",\r\n                    \"display\": \"famotidine (PEPCID) IVPB 20 mg (premix)\"\r\n                },\r\n                \"encounter\": {\r\n                    \"reference\": \"Encounter/eeVXp9HwWKBIxXEavPj-jsA3\",\r\n                    \"identifier\": {\r\n                        \"use\": \"usual\",\r\n                        \"system\": \"urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8\",\r\n                        \"value\": \"8057\"\r\n                    },\r\n                    \"display\": \"Hospital Encounter\"\r\n                },\r\n                \"authoredOn\": \"2015-02-19T21:59:25Z\",\r\n                \"requester\": {\r\n                    \"reference\": \"Practitioner/e9s-IdXQOUVywHOVoisd6xQ3\",\r\n                    \"type\": \"Practitioner\",\r\n                    \"display\": \"Attending Physician Inpatient, MD\"\r\n                },\r\n                \"recorder\": {\r\n                    \"reference\": \"Practitioner/e9s-IdXQOUVywHOVoisd6xQ3\",\r\n                    \"type\": \"Practitioner\",\r\n                    \"display\": \"Attending Physician Inpatient, MD\"\r\n                },\r\n                \"courseOfTherapyType\": \"Short course (acute) therapy\",\r\n                \"dosageInstruction\": [\r\n                    {\r\n                        \"text\": \"20 mg, Intravenous, at 100 mL/hr, Administer over 30 Minutes, 2 times daily, First dose on Thu 2/19/15 at 1800\",\r\n                        \"timing\": {\r\n                            \"repeat\": {\r\n                                \"boundsPeriod\": {\r\n                                    \"start\": \"2015-02-20T00:00:00Z\",\r\n                                    \"end\": \"2015-02-21T04:42:01Z\"\r\n                                },\r\n                                \"duration\": 30,\r\n                                \"durationUnit\": \"min\",\r\n                                \"frequency\": 2,\r\n                                \"period\": 1,\r\n                                \"periodUnit\": \"d\"\r\n                            },\r\n                            \"code\": {\r\n                                \"text\": \"0900, 1800\"\r\n                            }\r\n                        },\r\n                        \"asNeededBoolean\": false,\r\n                        \"route\": {\r\n                            \"coding\": [\r\n                                {\r\n                                    \"system\": \"http://snomed.info/sct\",\r\n                                    \"code\": \"418114005\",\r\n                                    \"display\": \"Intravenous central route (qualifier value)\"\r\n                                },\r\n                                {\r\n                                    \"system\": \"urn:oid:1.2.840.114350.1.13.0.1.7.4.798268.7025\",\r\n                                    \"code\": \"11\",\r\n                                    \"display\": \"Intravenous\"\r\n                                }\r\n                            ],\r\n                            \"text\": \"Intravenous\"\r\n                        },\r\n                        \"doseAndRate\": [\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"calculated\",\r\n                                            \"display\": \"calculated\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"calculated\"\r\n                                },\r\n                                \"doseQuantity\": {\r\n                                    \"value\": 20,\r\n                                    \"unit\": \"mg\",\r\n                                    \"system\": \"http://unitsofmeasure.org\",\r\n                                    \"code\": \"mg\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"admin-amount\",\r\n                                            \"display\": \"admin-amount\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"admin-amount\"\r\n                                },\r\n                                \"doseQuantity\": {\r\n                                    \"value\": 50,\r\n                                    \"unit\": \"mL\",\r\n                                    \"system\": \"http://unitsofmeasure.org\",\r\n                                    \"code\": \"mL\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"ordered\",\r\n                                            \"display\": \"ordered\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"ordered\"\r\n                                },\r\n                                \"doseQuantity\": {\r\n                                    \"value\": 20,\r\n                                    \"unit\": \"mg\",\r\n                                    \"system\": \"http://unitsofmeasure.org\",\r\n                                    \"code\": \"mg\"\r\n                                }\r\n                            }\r\n                        ]\r\n                    }\r\n                ]\r\n            },\r\n            {\r\n                \"status\": \"stopped\",\r\n                \"medicationReference\": {\r\n                    \"reference\": \"Medication/e57LBJMLMh7gCVpJlMCgB68n3Zc0BGo6VfOiGh5IWPikKECPre9v-nNIVtb9seXQP3\",\r\n                    \"display\": \"levoFLOXacin (LEVAQUIN) IVPB 750 mg in 150 mL (premix)\"\r\n                },\r\n                \"encounter\": {\r\n                    \"reference\": \"Encounter/eeVXp9HwWKBIxXEavPj-jsA3\",\r\n                    \"identifier\": {\r\n                        \"use\": \"usual\",\r\n                        \"system\": \"urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8\",\r\n                        \"value\": \"8057\"\r\n                    },\r\n                    \"display\": \"Hospital Encounter\"\r\n                },\r\n                \"authoredOn\": \"2015-02-19T21:59:25Z\",\r\n                \"requester\": {\r\n                    \"reference\": \"Practitioner/e9s-IdXQOUVywHOVoisd6xQ3\",\r\n                    \"type\": \"Practitioner\",\r\n                    \"display\": \"Attending Physician Inpatient, MD\"\r\n                },\r\n                \"recorder\": {\r\n                    \"reference\": \"Practitioner/e9s-IdXQOUVywHOVoisd6xQ3\",\r\n                    \"type\": \"Practitioner\",\r\n                    \"display\": \"Attending Physician Inpatient, MD\"\r\n                },\r\n                \"courseOfTherapyType\": \"Short course (acute) therapy\",\r\n                \"dosageInstruction\": [\r\n                    {\r\n                        \"text\": \"750 mg, Intravenous, at 150 mL/hr, Administer over 60 Minutes, Every 24 hours, First dose on Thu 2/19/15 at 1600\",\r\n                        \"timing\": {\r\n                            \"repeat\": {\r\n                                \"boundsPeriod\": {\r\n                                    \"start\": \"2015-02-19T22:00:00Z\",\r\n                                    \"end\": \"2015-02-21T14:11:21Z\"\r\n                                },\r\n                                \"duration\": 60,\r\n                                \"durationUnit\": \"min\",\r\n                                \"frequency\": 1,\r\n                                \"period\": 24,\r\n                                \"periodUnit\": \"h\"\r\n                            },\r\n                            \"code\": {\r\n                                \"text\": \"Every 24 hours\"\r\n                            }\r\n                        },\r\n                        \"asNeededBoolean\": false,\r\n                        \"route\": {\r\n                            \"coding\": [\r\n                                {\r\n                                    \"system\": \"http://snomed.info/sct\",\r\n                                    \"code\": \"418114005\",\r\n                                    \"display\": \"Intravenous central route (qualifier value)\"\r\n                                },\r\n                                {\r\n                                    \"system\": \"urn:oid:1.2.840.114350.1.13.0.1.7.4.798268.7025\",\r\n                                    \"code\": \"11\",\r\n                                    \"display\": \"Intravenous\"\r\n                                }\r\n                            ],\r\n                            \"text\": \"Intravenous\"\r\n                        },\r\n                        \"doseAndRate\": [\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"calculated\",\r\n                                            \"display\": \"calculated\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"calculated\"\r\n                                },\r\n                                \"doseQuantity\": {\r\n                                    \"value\": 750,\r\n                                    \"unit\": \"mg\",\r\n                                    \"system\": \"http://unitsofmeasure.org\",\r\n                                    \"code\": \"mg\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"admin-amount\",\r\n                                            \"display\": \"admin-amount\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"admin-amount\"\r\n                                },\r\n                                \"doseQuantity\": {\r\n                                    \"value\": 150,\r\n                                    \"unit\": \"mL\",\r\n                                    \"system\": \"http://unitsofmeasure.org\",\r\n                                    \"code\": \"mL\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"ordered\",\r\n                                            \"display\": \"ordered\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"ordered\"\r\n                                },\r\n                                \"doseQuantity\": {\r\n                                    \"value\": 750,\r\n                                    \"unit\": \"mg\",\r\n                                    \"system\": \"http://unitsofmeasure.org\",\r\n                                    \"code\": \"mg\"\r\n                                }\r\n                            }\r\n                        ]\r\n                    }\r\n                ]\r\n            },\r\n            {\r\n                \"status\": \"stopped\",\r\n                \"medicationReference\": {\r\n                    \"reference\": \"Medication/eeaQGRTv4NYwaix.o7RI6slv48g9aBo-vZsMyqHafnWLSflp4b0v2P2mTK05Ydga43\",\r\n                    \"display\": \"potassium chloride liquid 40 mEq/15mL\"\r\n                },\r\n                \"encounter\": {\r\n                    \"reference\": \"Encounter/eeVXp9HwWKBIxXEavPj-jsA3\",\r\n                    \"identifier\": {\r\n                        \"use\": \"usual\",\r\n                        \"system\": \"urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8\",\r\n                        \"value\": \"8057\"\r\n                    },\r\n                    \"display\": \"Hospital Encounter\"\r\n                },\r\n                \"authoredOn\": \"2015-02-19T21:59:25Z\",\r\n                \"requester\": {\r\n                    \"reference\": \"Practitioner/e9s-IdXQOUVywHOVoisd6xQ3\",\r\n                    \"type\": \"Practitioner\",\r\n                    \"display\": \"Attending Physician Inpatient, MD\"\r\n                },\r\n                \"recorder\": {\r\n                    \"reference\": \"Practitioner/e9s-IdXQOUVywHOVoisd6xQ3\",\r\n                    \"type\": \"Practitioner\",\r\n                    \"display\": \"Attending Physician Inpatient, MD\"\r\n                },\r\n                \"courseOfTherapyType\": \"Short course (acute) therapy\",\r\n                \"dosageInstruction\": [\r\n                    {\r\n                        \"text\": \"40 mEq, Oral, Daily, First dose on Thu 2/19/15 at 1600\",\r\n                        \"timing\": {\r\n                            \"repeat\": {\r\n                                \"boundsPeriod\": {\r\n                                    \"start\": \"2015-02-19T22:00:00Z\",\r\n                                    \"end\": \"2015-02-21T14:11:21Z\"\r\n                                },\r\n                                \"frequency\": 1,\r\n                                \"period\": 1,\r\n                                \"periodUnit\": \"d\"\r\n                            },\r\n                            \"code\": {\r\n                                \"text\": \"0900\"\r\n                            }\r\n                        },\r\n                        \"asNeededBoolean\": false,\r\n                        \"route\": {\r\n                            \"coding\": [\r\n                                {\r\n                                    \"system\": \"http://snomed.info/sct\",\r\n                                    \"code\": \"260548002\",\r\n                                    \"display\": \"Oral (qualifier value)\"\r\n                                },\r\n                                {\r\n                                    \"system\": \"urn:oid:1.2.840.114350.1.13.0.1.7.4.798268.7025\",\r\n                                    \"code\": \"15\",\r\n                                    \"display\": \"Oral\"\r\n                                }\r\n                            ],\r\n                            \"text\": \"Oral\"\r\n                        },\r\n                        \"doseAndRate\": [\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"calculated\",\r\n                                            \"display\": \"calculated\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"calculated\"\r\n                                },\r\n                                \"doseQuantity\": {\r\n                                    \"value\": 40,\r\n                                    \"unit\": \"mEq\",\r\n                                    \"system\": \"http://unitsofmeasure.org\",\r\n                                    \"code\": \"meq\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"admin-amount\",\r\n                                            \"display\": \"admin-amount\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"admin-amount\"\r\n                                },\r\n                                \"doseQuantity\": {\r\n                                    \"value\": 15,\r\n                                    \"unit\": \"mL\",\r\n                                    \"system\": \"http://unitsofmeasure.org\",\r\n                                    \"code\": \"mL\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"ordered\",\r\n                                            \"display\": \"ordered\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"ordered\"\r\n                                },\r\n                                \"doseQuantity\": {\r\n                                    \"value\": 40,\r\n                                    \"unit\": \"mEq\",\r\n                                    \"system\": \"http://unitsofmeasure.org\",\r\n                                    \"code\": \"meq\"\r\n                                }\r\n                            }\r\n                        ]\r\n                    }\r\n                ]\r\n            }\r\n        ],\r\n        \"active\": [\r\n            {\r\n                \"status\": \"active\",\r\n                \"medicationReference\": {\r\n                    \"reference\": \"Medication/eGqlUOle7zUr849XGeFXxBpj738HUzmv4DZxUlYv7we5YbkJQhjwj1CiThGwzO1cD3\",\r\n                    \"display\": \"lisinopril (PRINIVIL,ZESTRIL) tablet\"\r\n                },\r\n                \"encounter\": {\r\n                    \"reference\": \"Encounter/eeVXp9HwWKBIxXEavPj-jsA3\",\r\n                    \"identifier\": {\r\n                        \"use\": \"usual\",\r\n                        \"system\": \"urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8\",\r\n                        \"value\": \"8057\"\r\n                    },\r\n                    \"display\": \"Hospital Encounter\"\r\n                },\r\n                \"authoredOn\": \"2015-02-19T19:51:20Z\",\r\n                \"requester\": {\r\n                    \"reference\": \"Practitioner/e9s-IdXQOUVywHOVoisd6xQ3\",\r\n                    \"type\": \"Practitioner\",\r\n                    \"display\": \"Attending Physician Inpatient, MD\"\r\n                },\r\n                \"recorder\": {\r\n                    \"reference\": \"Practitioner/e9s-IdXQOUVywHOVoisd6xQ3\",\r\n                    \"type\": \"Practitioner\",\r\n                    \"display\": \"Attending Physician Inpatient, MD\"\r\n                },\r\n                \"courseOfTherapyType\": \"Short course (acute) therapy\",\r\n                \"dosageInstruction\": [\r\n                    {\r\n                        \"text\": \"10 mg, Oral, Daily, First dose on Thu 2/19/15 at 1400\",\r\n                        \"timing\": {\r\n                            \"repeat\": {\r\n                                \"boundsPeriod\": {\r\n                                    \"start\": \"2015-02-19T20:00:00Z\"\r\n                                },\r\n                                \"frequency\": 1,\r\n                                \"period\": 1,\r\n                                \"periodUnit\": \"d\"\r\n                            },\r\n                            \"code\": {\r\n                                \"text\": \"0900\"\r\n                            }\r\n                        },\r\n                        \"asNeededBoolean\": false,\r\n                        \"route\": {\r\n                            \"coding\": [\r\n                                {\r\n                                    \"system\": \"http://snomed.info/sct\",\r\n                                    \"code\": \"260548002\",\r\n                                    \"display\": \"Oral (qualifier value)\"\r\n                                },\r\n                                {\r\n                                    \"system\": \"urn:oid:1.2.840.114350.1.13.0.1.7.4.798268.7025\",\r\n                                    \"code\": \"15\",\r\n                                    \"display\": \"Oral\"\r\n                                }\r\n                            ],\r\n                            \"text\": \"Oral\"\r\n                        },\r\n                        \"doseAndRate\": [\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"calculated\",\r\n                                            \"display\": \"calculated\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"calculated\"\r\n                                },\r\n                                \"doseQuantity\": {\r\n                                    \"value\": 10,\r\n                                    \"unit\": \"mg\",\r\n                                    \"system\": \"http://unitsofmeasure.org\",\r\n                                    \"code\": \"mg\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"admin-amount\",\r\n                                            \"display\": \"admin-amount\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"admin-amount\"\r\n                                },\r\n                                \"doseQuantity\": {\r\n                                    \"value\": 1,\r\n                                    \"unit\": \"tablet\",\r\n                                    \"system\": \"http://unitsofmeasure.org\",\r\n                                    \"code\": \"{tbl}\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"ordered\",\r\n                                            \"display\": \"ordered\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"ordered\"\r\n                                },\r\n                                \"doseQuantity\": {\r\n                                    \"value\": 10,\r\n                                    \"unit\": \"mg\",\r\n                                    \"system\": \"http://unitsofmeasure.org\",\r\n                                    \"code\": \"mg\"\r\n                                }\r\n                            }\r\n                        ]\r\n                    }\r\n                ]\r\n            },\r\n            {\r\n                \"status\": \"active\",\r\n                \"medicationReference\": {\r\n                    \"reference\": \"Medication/eFR3yLaDJMFrRaYEUuolR8aXj88RkXyDzW8b-QbdTKrEuqoCPTCIgVViroVOehPCm3\",\r\n                    \"display\": \"insulin aspart (NovoLOG) injection\"\r\n                },\r\n                \"encounter\": {\r\n                    \"reference\": \"Encounter/eeVXp9HwWKBIxXEavPj-jsA3\",\r\n                    \"identifier\": {\r\n                        \"use\": \"usual\",\r\n                        \"system\": \"urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8\",\r\n                        \"value\": \"8057\"\r\n                    },\r\n                    \"display\": \"Hospital Encounter\"\r\n                },\r\n                \"authoredOn\": \"2015-02-19T22:00:11Z\",\r\n                \"requester\": {\r\n                    \"reference\": \"Practitioner/e9s-IdXQOUVywHOVoisd6xQ3\",\r\n                    \"type\": \"Practitioner\",\r\n                    \"display\": \"Attending Physician Inpatient, MD\"\r\n                },\r\n                \"recorder\": {\r\n                    \"reference\": \"Practitioner/e9s-IdXQOUVywHOVoisd6xQ3\",\r\n                    \"type\": \"Practitioner\",\r\n                    \"display\": \"Attending Physician Inpatient, MD\"\r\n                },\r\n                \"courseOfTherapyType\": \"Short course (acute) therapy\",\r\n                \"dosageInstruction\": [\r\n                    {\r\n                        \"text\": \"2-12 Units, Subcutaneous, 3 times daily before meals, First dose on Thu 2/19/15 at 1730\\nBlood Sugar \\tLow Dose   60-110 \\tNo Insulin 111-150 \\t2 units 151-200 \\t4 units  201-250 \\t6 units 251-300 \\t8 units  301-350 \\t10 units  >350 \\t            12 units Call MD  For blood sugar < 60 mg/dL • If patient can eat or drink, give 15 g of carbohydrate (4 oz fruit juice, soda, or 3–4 glucose tablets) • If patient NPO, give D50W 25 mL as IV push • Check blood sugar every 15 minutes and repeat above if < 80 mg/dL\\n\",\r\n                        \"timing\": {\r\n                            \"repeat\": {\r\n                                \"boundsPeriod\": {\r\n                                    \"start\": \"2015-02-19T23:30:00Z\"\r\n                                },\r\n                                \"frequency\": 3,\r\n                                \"period\": 1,\r\n                                \"periodUnit\": \"d\"\r\n                            },\r\n                            \"code\": {\r\n                                \"text\": \"0730, 1130, 1730\"\r\n                            }\r\n                        },\r\n                        \"asNeededBoolean\": false,\r\n                        \"route\": {\r\n                            \"coding\": [\r\n                                {\r\n                                    \"system\": \"urn:oid:1.2.840.114350.1.13.0.1.7.4.798268.7025\",\r\n                                    \"code\": \"18\",\r\n                                    \"display\": \"Subcutaneous\"\r\n                                }\r\n                            ],\r\n                            \"text\": \"Subcutaneous\"\r\n                        },\r\n                        \"doseAndRate\": [\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"calculated\",\r\n                                            \"display\": \"calculated\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"calculated\"\r\n                                },\r\n                                \"doseRange\": {\r\n                                    \"low\": {\r\n                                        \"value\": 2,\r\n                                        \"unit\": \"Units\",\r\n                                        \"system\": \"http://unitsofmeasure.org\",\r\n                                        \"code\": \"U\"\r\n                                    },\r\n                                    \"high\": {\r\n                                        \"value\": 12,\r\n                                        \"unit\": \"Units\",\r\n                                        \"system\": \"http://unitsofmeasure.org\",\r\n                                        \"code\": \"U\"\r\n                                    }\r\n                                }\r\n                            },\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"admin-amount\",\r\n                                            \"display\": \"admin-amount\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"admin-amount\"\r\n                                },\r\n                                \"doseRange\": {\r\n                                    \"low\": {\r\n                                        \"value\": 2,\r\n                                        \"unit\": \"Units\",\r\n                                        \"system\": \"http://unitsofmeasure.org\",\r\n                                        \"code\": \"U\"\r\n                                    },\r\n                                    \"high\": {\r\n                                        \"value\": 12,\r\n                                        \"unit\": \"Units\",\r\n                                        \"system\": \"http://unitsofmeasure.org\",\r\n                                        \"code\": \"U\"\r\n                                    }\r\n                                }\r\n                            },\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"ordered\",\r\n                                            \"display\": \"ordered\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"ordered\"\r\n                                },\r\n                                \"doseRange\": {\r\n                                    \"low\": {\r\n                                        \"value\": 2,\r\n                                        \"unit\": \"Units\",\r\n                                        \"system\": \"http://unitsofmeasure.org\",\r\n                                        \"code\": \"U\"\r\n                                    },\r\n                                    \"high\": {\r\n                                        \"value\": 12,\r\n                                        \"unit\": \"Units\",\r\n                                        \"system\": \"http://unitsofmeasure.org\",\r\n                                        \"code\": \"U\"\r\n                                    }\r\n                                }\r\n                            }\r\n                        ]\r\n                    }\r\n                ]\r\n            },\r\n            {\r\n                \"status\": \"active\",\r\n                \"medicationReference\": {\r\n                    \"reference\": \"Medication/epBTCPiNwQQRFZ6zLnY3ow8ECBGYC7-iETeFDMPLp5DMVWponJt-b4QtX0g6L8On03\",\r\n                    \"display\": \"hydroCHLOROthiazide (HYDRODIURIL) tablet\"\r\n                },\r\n                \"encounter\": {\r\n                    \"reference\": \"Encounter/eeVXp9HwWKBIxXEavPj-jsA3\",\r\n                    \"identifier\": {\r\n                        \"use\": \"usual\",\r\n                        \"system\": \"urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8\",\r\n                        \"value\": \"8057\"\r\n                    },\r\n                    \"display\": \"Hospital Encounter\"\r\n                },\r\n                \"authoredOn\": \"2015-02-19T19:51:20Z\",\r\n                \"requester\": {\r\n                    \"reference\": \"Practitioner/e9s-IdXQOUVywHOVoisd6xQ3\",\r\n                    \"type\": \"Practitioner\",\r\n                    \"display\": \"Attending Physician Inpatient, MD\"\r\n                },\r\n                \"recorder\": {\r\n                    \"reference\": \"Practitioner/e9s-IdXQOUVywHOVoisd6xQ3\",\r\n                    \"type\": \"Practitioner\",\r\n                    \"display\": \"Attending Physician Inpatient, MD\"\r\n                },\r\n                \"courseOfTherapyType\": \"Short course (acute) therapy\",\r\n                \"dosageInstruction\": [\r\n                    {\r\n                        \"text\": \"25 mg, Oral, Daily, First dose on Thu 2/19/15 at 1400\",\r\n                        \"timing\": {\r\n                            \"repeat\": {\r\n                                \"boundsPeriod\": {\r\n                                    \"start\": \"2015-02-19T20:00:00Z\"\r\n                                },\r\n                                \"frequency\": 1,\r\n                                \"period\": 1,\r\n                                \"periodUnit\": \"d\"\r\n                            },\r\n                            \"code\": {\r\n                                \"text\": \"0900\"\r\n                            }\r\n                        },\r\n                        \"asNeededBoolean\": false,\r\n                        \"route\": {\r\n                            \"coding\": [\r\n                                {\r\n                                    \"system\": \"http://snomed.info/sct\",\r\n                                    \"code\": \"260548002\",\r\n                                    \"display\": \"Oral (qualifier value)\"\r\n                                },\r\n                                {\r\n                                    \"system\": \"urn:oid:1.2.840.114350.1.13.0.1.7.4.798268.7025\",\r\n                                    \"code\": \"15\",\r\n                                    \"display\": \"Oral\"\r\n                                }\r\n                            ],\r\n                            \"text\": \"Oral\"\r\n                        },\r\n                        \"doseAndRate\": [\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"calculated\",\r\n                                            \"display\": \"calculated\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"calculated\"\r\n                                },\r\n                                \"doseQuantity\": {\r\n                                    \"value\": 25,\r\n                                    \"unit\": \"mg\",\r\n                                    \"system\": \"http://unitsofmeasure.org\",\r\n                                    \"code\": \"mg\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"admin-amount\",\r\n                                            \"display\": \"admin-amount\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"admin-amount\"\r\n                                },\r\n                                \"doseQuantity\": {\r\n                                    \"value\": 1,\r\n                                    \"unit\": \"tablet\",\r\n                                    \"system\": \"http://unitsofmeasure.org\",\r\n                                    \"code\": \"{tbl}\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"ordered\",\r\n                                            \"display\": \"ordered\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"ordered\"\r\n                                },\r\n                                \"doseQuantity\": {\r\n                                    \"value\": 25,\r\n                                    \"unit\": \"mg\",\r\n                                    \"system\": \"http://unitsofmeasure.org\",\r\n                                    \"code\": \"mg\"\r\n                                }\r\n                            }\r\n                        ]\r\n                    }\r\n                ]\r\n            },\r\n            {\r\n                \"status\": \"active\",\r\n                \"medicationReference\": {\r\n                    \"reference\": \"Medication/eWsLe1Oy1sGigN-S13IvXNikhcZzfgKNVnrdcFDHw-2mvydjzHgh4aH7yc3lfSHrF3\",\r\n                    \"display\": \"acetaminophen (TYLENOL) tablet\"\r\n                },\r\n                \"encounter\": {\r\n                    \"reference\": \"Encounter/eeVXp9HwWKBIxXEavPj-jsA3\",\r\n                    \"identifier\": {\r\n                        \"use\": \"usual\",\r\n                        \"system\": \"urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8\",\r\n                        \"value\": \"8057\"\r\n                    },\r\n                    \"display\": \"Hospital Encounter\"\r\n                },\r\n                \"authoredOn\": \"2015-02-19T21:59:25Z\",\r\n                \"requester\": {\r\n                    \"reference\": \"Practitioner/e9s-IdXQOUVywHOVoisd6xQ3\",\r\n                    \"type\": \"Practitioner\",\r\n                    \"display\": \"Attending Physician Inpatient, MD\"\r\n                },\r\n                \"recorder\": {\r\n                    \"reference\": \"Practitioner/e9s-IdXQOUVywHOVoisd6xQ3\",\r\n                    \"type\": \"Practitioner\",\r\n                    \"display\": \"Attending Physician Inpatient, MD\"\r\n                },\r\n                \"courseOfTherapyType\": \"Short course (acute) therapy\",\r\n                \"dosageInstruction\": [\r\n                    {\r\n                        \"text\": \"650 mg, Oral, Every 6 hours PRN, mild pain, Starting on Thu 2/19/15 at 1558\",\r\n                        \"timing\": {\r\n                            \"repeat\": {\r\n                                \"boundsPeriod\": {\r\n                                    \"start\": \"2015-02-19T21:58:05Z\"\r\n                                },\r\n                                \"frequency\": 1,\r\n                                \"period\": 6,\r\n                                \"periodUnit\": \"h\"\r\n                            },\r\n                            \"code\": {\r\n                                \"text\": \"Every 6 hours as needed\"\r\n                            }\r\n                        },\r\n                        \"asNeededBoolean\": true,\r\n                        \"route\": {\r\n                            \"coding\": [\r\n                                {\r\n                                    \"system\": \"http://snomed.info/sct\",\r\n                                    \"code\": \"260548002\",\r\n                                    \"display\": \"Oral (qualifier value)\"\r\n                                },\r\n                                {\r\n                                    \"system\": \"urn:oid:1.2.840.114350.1.13.0.1.7.4.798268.7025\",\r\n                                    \"code\": \"15\",\r\n                                    \"display\": \"Oral\"\r\n                                }\r\n                            ],\r\n                            \"text\": \"Oral\"\r\n                        },\r\n                        \"doseAndRate\": [\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"calculated\",\r\n                                            \"display\": \"calculated\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"calculated\"\r\n                                },\r\n                                \"doseQuantity\": {\r\n                                    \"value\": 650,\r\n                                    \"unit\": \"mg\",\r\n                                    \"system\": \"http://unitsofmeasure.org\",\r\n                                    \"code\": \"mg\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"admin-amount\",\r\n                                            \"display\": \"admin-amount\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"admin-amount\"\r\n                                },\r\n                                \"doseQuantity\": {\r\n                                    \"value\": 2,\r\n                                    \"unit\": \"tablet\",\r\n                                    \"system\": \"http://unitsofmeasure.org\",\r\n                                    \"code\": \"{tbl}\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"ordered\",\r\n                                            \"display\": \"ordered\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"ordered\"\r\n                                },\r\n                                \"doseQuantity\": {\r\n                                    \"value\": 650,\r\n                                    \"unit\": \"mg\",\r\n                                    \"system\": \"http://unitsofmeasure.org\",\r\n                                    \"code\": \"mg\"\r\n                                }\r\n                            }\r\n                        ]\r\n                    }\r\n                ]\r\n            },\r\n            {\r\n                \"status\": \"active\",\r\n                \"medicationReference\": {\r\n                    \"reference\": \"Medication/eafwjDr8n5KtrqQenh2gGXozwHz-lfEMylCdfgc5F5M6zDtKdNGUHXJivPjZGrgU33\",\r\n                    \"display\": \"aspirin tablet\"\r\n                },\r\n                \"encounter\": {\r\n                    \"reference\": \"Encounter/eeVXp9HwWKBIxXEavPj-jsA3\",\r\n                    \"identifier\": {\r\n                        \"use\": \"usual\",\r\n                        \"system\": \"urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8\",\r\n                        \"value\": \"8057\"\r\n                    },\r\n                    \"display\": \"Hospital Encounter\"\r\n                },\r\n                \"authoredOn\": \"2015-02-19T19:51:19Z\",\r\n                \"requester\": {\r\n                    \"reference\": \"Practitioner/e9s-IdXQOUVywHOVoisd6xQ3\",\r\n                    \"type\": \"Practitioner\",\r\n                    \"display\": \"Attending Physician Inpatient, MD\"\r\n                },\r\n                \"recorder\": {\r\n                    \"reference\": \"Practitioner/e9s-IdXQOUVywHOVoisd6xQ3\",\r\n                    \"type\": \"Practitioner\",\r\n                    \"display\": \"Attending Physician Inpatient, MD\"\r\n                },\r\n                \"courseOfTherapyType\": \"Short course (acute) therapy\",\r\n                \"dosageInstruction\": [\r\n                    {\r\n                        \"text\": \"81 mg, Oral, Daily, First dose on Thu 2/19/15 at 1400\",\r\n                        \"timing\": {\r\n                            \"repeat\": {\r\n                                \"boundsPeriod\": {\r\n                                    \"start\": \"2015-02-19T20:00:00Z\"\r\n                                },\r\n                                \"frequency\": 1,\r\n                                \"period\": 1,\r\n                                \"periodUnit\": \"d\"\r\n                            },\r\n                            \"code\": {\r\n                                \"text\": \"0900\"\r\n                            }\r\n                        },\r\n                        \"asNeededBoolean\": false,\r\n                        \"route\": {\r\n                            \"coding\": [\r\n                                {\r\n                                    \"system\": \"http://snomed.info/sct\",\r\n                                    \"code\": \"260548002\",\r\n                                    \"display\": \"Oral (qualifier value)\"\r\n                                },\r\n                                {\r\n                                    \"system\": \"urn:oid:1.2.840.114350.1.13.0.1.7.4.798268.7025\",\r\n                                    \"code\": \"15\",\r\n                                    \"display\": \"Oral\"\r\n                                }\r\n                            ],\r\n                            \"text\": \"Oral\"\r\n                        },\r\n                        \"doseAndRate\": [\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"calculated\",\r\n                                            \"display\": \"calculated\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"calculated\"\r\n                                },\r\n                                \"doseQuantity\": {\r\n                                    \"value\": 81,\r\n                                    \"unit\": \"mg\",\r\n                                    \"system\": \"http://unitsofmeasure.org\",\r\n                                    \"code\": \"mg\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"admin-amount\",\r\n                                            \"display\": \"admin-amount\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"admin-amount\"\r\n                                },\r\n                                \"doseQuantity\": {\r\n                                    \"value\": 1,\r\n                                    \"unit\": \"tablet\",\r\n                                    \"system\": \"http://unitsofmeasure.org\",\r\n                                    \"code\": \"{tbl}\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"ordered\",\r\n                                            \"display\": \"ordered\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"ordered\"\r\n                                },\r\n                                \"doseQuantity\": {\r\n                                    \"value\": 81,\r\n                                    \"unit\": \"mg\",\r\n                                    \"system\": \"http://unitsofmeasure.org\",\r\n                                    \"code\": \"mg\"\r\n                                }\r\n                            }\r\n                        ]\r\n                    }\r\n                ]\r\n            },\r\n            {\r\n                \"status\": \"active\",\r\n                \"medicationReference\": {\r\n                    \"reference\": \"Medication/eYuGGx1U27okWPSDjcPJoleItlZ2GMVjA.6ThM238sd.kF8apBl.yNllSY6W9-Q3h3\",\r\n                    \"display\": \"levoFLOXacin (LEVAQUIN) tablet\"\r\n                },\r\n                \"encounter\": {\r\n                    \"reference\": \"Encounter/eeVXp9HwWKBIxXEavPj-jsA3\",\r\n                    \"identifier\": {\r\n                        \"use\": \"usual\",\r\n                        \"system\": \"urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8\",\r\n                        \"value\": \"8057\"\r\n                    },\r\n                    \"display\": \"Hospital Encounter\"\r\n                },\r\n                \"authoredOn\": \"2015-02-21T14:11:21Z\",\r\n                \"requester\": {\r\n                    \"reference\": \"Practitioner/e9s-IdXQOUVywHOVoisd6xQ3\",\r\n                    \"type\": \"Practitioner\",\r\n                    \"display\": \"Attending Physician Inpatient, MD\"\r\n                },\r\n                \"recorder\": {\r\n                    \"reference\": \"Practitioner/e9s-IdXQOUVywHOVoisd6xQ3\",\r\n                    \"type\": \"Practitioner\",\r\n                    \"display\": \"Attending Physician Inpatient, MD\"\r\n                },\r\n                \"courseOfTherapyType\": \"Short course (acute) therapy\",\r\n                \"dosageInstruction\": [\r\n                    {\r\n                        \"text\": \"750 mg, Oral, Daily, First dose on Sat 2/21/15 at 0900\",\r\n                        \"timing\": {\r\n                            \"repeat\": {\r\n                                \"boundsPeriod\": {\r\n                                    \"start\": \"2015-02-21T15:00:00Z\"\r\n                                },\r\n                                \"frequency\": 1,\r\n                                \"period\": 1,\r\n                                \"periodUnit\": \"d\"\r\n                            },\r\n                            \"code\": {\r\n                                \"text\": \"0900\"\r\n                            }\r\n                        },\r\n                        \"asNeededBoolean\": false,\r\n                        \"route\": {\r\n                            \"coding\": [\r\n                                {\r\n                                    \"system\": \"http://snomed.info/sct\",\r\n                                    \"code\": \"260548002\",\r\n                                    \"display\": \"Oral (qualifier value)\"\r\n                                },\r\n                                {\r\n                                    \"system\": \"urn:oid:1.2.840.114350.1.13.0.1.7.4.798268.7025\",\r\n                                    \"code\": \"15\",\r\n                                    \"display\": \"Oral\"\r\n                                }\r\n                            ],\r\n                            \"text\": \"Oral\"\r\n                        },\r\n                        \"doseAndRate\": [\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"calculated\",\r\n                                            \"display\": \"calculated\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"calculated\"\r\n                                },\r\n                                \"doseQuantity\": {\r\n                                    \"value\": 750,\r\n                                    \"unit\": \"mg\",\r\n                                    \"system\": \"http://unitsofmeasure.org\",\r\n                                    \"code\": \"mg\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"admin-amount\",\r\n                                            \"display\": \"admin-amount\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"admin-amount\"\r\n                                },\r\n                                \"doseQuantity\": {\r\n                                    \"value\": 1,\r\n                                    \"unit\": \"tablet\",\r\n                                    \"system\": \"http://unitsofmeasure.org\",\r\n                                    \"code\": \"{tbl}\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"ordered\",\r\n                                            \"display\": \"ordered\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"ordered\"\r\n                                },\r\n                                \"doseQuantity\": {\r\n                                    \"value\": 750,\r\n                                    \"unit\": \"mg\",\r\n                                    \"system\": \"http://unitsofmeasure.org\",\r\n                                    \"code\": \"mg\"\r\n                                }\r\n                            }\r\n                        ]\r\n                    }\r\n                ]\r\n            },\r\n            {\r\n                \"status\": \"active\",\r\n                \"medicationReference\": {\r\n                    \"reference\": \"Medication/etXm34L2tBSgW3YmrH5959hwBaynynQGGDTnrqIk2GlS74gob.Yq8RH3iaAfCypwS3\",\r\n                    \"display\": \"enoxaparin (LOVENOX) injection 40 mg\"\r\n                },\r\n                \"encounter\": {\r\n                    \"reference\": \"Encounter/eeVXp9HwWKBIxXEavPj-jsA3\",\r\n                    \"identifier\": {\r\n                        \"use\": \"usual\",\r\n                        \"system\": \"urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8\",\r\n                        \"value\": \"8057\"\r\n                    },\r\n                    \"display\": \"Hospital Encounter\"\r\n                },\r\n                \"authoredOn\": \"2015-02-19T19:51:20Z\",\r\n                \"requester\": {\r\n                    \"reference\": \"Practitioner/e9s-IdXQOUVywHOVoisd6xQ3\",\r\n                    \"type\": \"Practitioner\",\r\n                    \"display\": \"Attending Physician Inpatient, MD\"\r\n                },\r\n                \"recorder\": {\r\n                    \"reference\": \"Practitioner/e9s-IdXQOUVywHOVoisd6xQ3\",\r\n                    \"type\": \"Practitioner\",\r\n                    \"display\": \"Attending Physician Inpatient, MD\"\r\n                },\r\n                \"courseOfTherapyType\": \"Short course (acute) therapy\",\r\n                \"dosageInstruction\": [\r\n                    {\r\n                        \"text\": \"40 mg, Subcutaneous, Every 24 hours scheduled, First dose on Thu 2/19/15 at 1400\",\r\n                        \"timing\": {\r\n                            \"repeat\": {\r\n                                \"boundsPeriod\": {\r\n                                    \"start\": \"2015-02-19T20:00:00Z\"\r\n                                },\r\n                                \"frequency\": 1,\r\n                                \"period\": 1,\r\n                                \"periodUnit\": \"d\"\r\n                            },\r\n                            \"code\": {\r\n                                \"text\": \"0900\"\r\n                            }\r\n                        },\r\n                        \"asNeededBoolean\": false,\r\n                        \"route\": {\r\n                            \"coding\": [\r\n                                {\r\n                                    \"system\": \"urn:oid:1.2.840.114350.1.13.0.1.7.4.798268.7025\",\r\n                                    \"code\": \"18\",\r\n                                    \"display\": \"Subcutaneous\"\r\n                                }\r\n                            ],\r\n                            \"text\": \"Subcutaneous\"\r\n                        },\r\n                        \"doseAndRate\": [\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"calculated\",\r\n                                            \"display\": \"calculated\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"calculated\"\r\n                                },\r\n                                \"doseQuantity\": {\r\n                                    \"value\": 40,\r\n                                    \"unit\": \"mg\",\r\n                                    \"system\": \"http://unitsofmeasure.org\",\r\n                                    \"code\": \"mg\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"admin-amount\",\r\n                                            \"display\": \"admin-amount\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"admin-amount\"\r\n                                },\r\n                                \"doseQuantity\": {\r\n                                    \"value\": 0.4,\r\n                                    \"unit\": \"mL\",\r\n                                    \"system\": \"http://unitsofmeasure.org\",\r\n                                    \"code\": \"mL\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"ordered\",\r\n                                            \"display\": \"ordered\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"ordered\"\r\n                                },\r\n                                \"doseQuantity\": {\r\n                                    \"value\": 40,\r\n                                    \"unit\": \"mg\",\r\n                                    \"system\": \"http://unitsofmeasure.org\",\r\n                                    \"code\": \"mg\"\r\n                                }\r\n                            }\r\n                        ]\r\n                    }\r\n                ]\r\n            }\r\n        ],\r\n        \"on-hold\": [\r\n            {\r\n                \"status\": \"on-hold\",\r\n                \"medicationReference\": {\r\n                    \"reference\": \"Medication/eafwjDr8n5KtrqQenh2gGXhw-GQTbo.CSEHB42Y1FMfGDIayvPhkqXm7iyOyVo5Hv3\",\r\n                    \"display\": \"aspirin tablet\"\r\n                },\r\n                \"encounter\": {\r\n                    \"identifier\": {\r\n                        \"use\": \"usual\",\r\n                        \"system\": \"urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8\",\r\n                        \"value\": \"8062\"\r\n                    },\r\n                    \"display\": \"Office Visit\"\r\n                },\r\n                \"authoredOn\": \"2015-02-09T14:28:57Z\",\r\n                \"requester\": {\r\n                    \"extension\": [\r\n                        {\r\n                            \"valueCode\": \"unknown\",\r\n                            \"url\": \"http://hl7.org/fhir/StructureDefinition/data-absent-reason\"\r\n                        }\r\n                    ]\r\n                },\r\n                \"recorder\": {\r\n                    \"reference\": \"Practitioner/erqn5oyiA9.LpVQkQ2Ulmgg3\",\r\n                    \"type\": \"Practitioner\",\r\n                    \"display\": \"Nurse Family Medicine, RN\"\r\n                },\r\n                \"courseOfTherapyType\": \"Short course (acute) therapy\",\r\n                \"dosageInstruction\": [\r\n                    {\r\n                        \"text\": \"Take 81 mg by mouth daily., Historical Med\",\r\n                        \"patientInstruction\": \"Take 81 mg by mouth daily.\",\r\n                        \"timing\": {\r\n                            \"repeat\": {\r\n                                \"timeOfDay\": [\r\n                                    \"09:00:00\"\r\n                                ]\r\n                            },\r\n                            \"code\": {\r\n                                \"text\": \"0900\"\r\n                            }\r\n                        },\r\n                        \"asNeededBoolean\": false,\r\n                        \"route\": {\r\n                            \"coding\": [\r\n                                {\r\n                                    \"system\": \"http://snomed.info/sct\",\r\n                                    \"code\": \"260548002\",\r\n                                    \"display\": \"Oral (qualifier value)\"\r\n                                },\r\n                                {\r\n                                    \"system\": \"urn:oid:1.2.840.114350.1.13.0.1.7.4.798268.7025\",\r\n                                    \"code\": \"15\",\r\n                                    \"display\": \"Oral\"\r\n                                }\r\n                            ],\r\n                            \"text\": \"Oral\"\r\n                        },\r\n                        \"doseAndRate\": [\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"ordered\",\r\n                                            \"display\": \"ordered\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"ordered\"\r\n                                },\r\n                                \"doseQuantity\": {\r\n                                    \"value\": 81,\r\n                                    \"unit\": \"mg\",\r\n                                    \"system\": \"http://unitsofmeasure.org\",\r\n                                    \"code\": \"mg\"\r\n                                }\r\n                            }\r\n                        ]\r\n                    }\r\n                ]\r\n            },\r\n            {\r\n                \"status\": \"on-hold\",\r\n                \"medicationReference\": {\r\n                    \"reference\": \"Medication/epBTCPiNwQQRFZ6zLnY3ow9B7qGIShSFxIQIctma.m1Uc6VpTFyF36oDFVIbBdzAV3\",\r\n                    \"display\": \"hydroCHLOROthiazide (HYDRODIURIL) tablet\"\r\n                },\r\n                \"encounter\": {\r\n                    \"identifier\": {\r\n                        \"use\": \"usual\",\r\n                        \"system\": \"urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8\",\r\n                        \"value\": \"8062\"\r\n                    },\r\n                    \"display\": \"Office Visit\"\r\n                },\r\n                \"authoredOn\": \"2015-02-09T14:28:57Z\",\r\n                \"requester\": {\r\n                    \"extension\": [\r\n                        {\r\n                            \"valueCode\": \"unknown\",\r\n                            \"url\": \"http://hl7.org/fhir/StructureDefinition/data-absent-reason\"\r\n                        }\r\n                    ]\r\n                },\r\n                \"recorder\": {\r\n                    \"reference\": \"Practitioner/erqn5oyiA9.LpVQkQ2Ulmgg3\",\r\n                    \"type\": \"Practitioner\",\r\n                    \"display\": \"Nurse Family Medicine, RN\"\r\n                },\r\n                \"courseOfTherapyType\": \"Short course (acute) therapy\",\r\n                \"dosageInstruction\": [\r\n                    {\r\n                        \"text\": \"Take 25 mg by mouth daily., Historical Med\",\r\n                        \"patientInstruction\": \"Take 25 mg by mouth daily.\",\r\n                        \"timing\": {\r\n                            \"repeat\": {\r\n                                \"timeOfDay\": [\r\n                                    \"09:00:00\"\r\n                                ]\r\n                            },\r\n                            \"code\": {\r\n                                \"text\": \"0900\"\r\n                            }\r\n                        },\r\n                        \"asNeededBoolean\": false,\r\n                        \"route\": {\r\n                            \"coding\": [\r\n                                {\r\n                                    \"system\": \"http://snomed.info/sct\",\r\n                                    \"code\": \"260548002\",\r\n                                    \"display\": \"Oral (qualifier value)\"\r\n                                },\r\n                                {\r\n                                    \"system\": \"urn:oid:1.2.840.114350.1.13.0.1.7.4.798268.7025\",\r\n                                    \"code\": \"15\",\r\n                                    \"display\": \"Oral\"\r\n                                }\r\n                            ],\r\n                            \"text\": \"Oral\"\r\n                        },\r\n                        \"doseAndRate\": [\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"ordered\",\r\n                                            \"display\": \"ordered\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"ordered\"\r\n                                },\r\n                                \"doseQuantity\": {\r\n                                    \"value\": 25,\r\n                                    \"unit\": \"mg\",\r\n                                    \"system\": \"http://unitsofmeasure.org\",\r\n                                    \"code\": \"mg\"\r\n                                }\r\n                            }\r\n                        ]\r\n                    }\r\n                ]\r\n            },\r\n            {\r\n                \"status\": \"on-hold\",\r\n                \"medicationReference\": {\r\n                    \"reference\": \"Medication/eBoeW2oM4uW.JMhod.FvtAmnP3nrPZ7epSsca3IQb5ADognpl6xizDY.Fjp9W-ffc3\",\r\n                    \"display\": \"metFORMIN (GLUCOPHAGE) tablet\"\r\n                },\r\n                \"encounter\": {\r\n                    \"identifier\": {\r\n                        \"use\": \"usual\",\r\n                        \"system\": \"urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8\",\r\n                        \"value\": \"8062\"\r\n                    },\r\n                    \"display\": \"Office Visit\"\r\n                },\r\n                \"authoredOn\": \"2015-02-09T14:28:56Z\",\r\n                \"requester\": {\r\n                    \"extension\": [\r\n                        {\r\n                            \"valueCode\": \"unknown\",\r\n                            \"url\": \"http://hl7.org/fhir/StructureDefinition/data-absent-reason\"\r\n                        }\r\n                    ]\r\n                },\r\n                \"recorder\": {\r\n                    \"reference\": \"Practitioner/erqn5oyiA9.LpVQkQ2Ulmgg3\",\r\n                    \"type\": \"Practitioner\",\r\n                    \"display\": \"Nurse Family Medicine, RN\"\r\n                },\r\n                \"courseOfTherapyType\": \"Short course (acute) therapy\",\r\n                \"dosageInstruction\": [\r\n                    {\r\n                        \"text\": \"Take 500 mg by mouth 2 (two) times a day with meals., Historical Med\",\r\n                        \"patientInstruction\": \"Take 500 mg by mouth 2 (two) times a day with meals.\",\r\n                        \"timing\": {\r\n                            \"repeat\": {\r\n                                \"timeOfDay\": [\r\n                                    \"08:00:00\",\r\n                                    \"18:00:00\"\r\n                                ]\r\n                            },\r\n                            \"code\": {\r\n                                \"text\": \"0800, 1800\"\r\n                            }\r\n                        },\r\n                        \"asNeededBoolean\": false,\r\n                        \"route\": {\r\n                            \"coding\": [\r\n                                {\r\n                                    \"system\": \"http://snomed.info/sct\",\r\n                                    \"code\": \"260548002\",\r\n                                    \"display\": \"Oral (qualifier value)\"\r\n                                },\r\n                                {\r\n                                    \"system\": \"urn:oid:1.2.840.114350.1.13.0.1.7.4.798268.7025\",\r\n                                    \"code\": \"15\",\r\n                                    \"display\": \"Oral\"\r\n                                }\r\n                            ],\r\n                            \"text\": \"Oral\"\r\n                        },\r\n                        \"doseAndRate\": [\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"ordered\",\r\n                                            \"display\": \"ordered\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"ordered\"\r\n                                },\r\n                                \"doseQuantity\": {\r\n                                    \"value\": 500,\r\n                                    \"unit\": \"mg\",\r\n                                    \"system\": \"http://unitsofmeasure.org\",\r\n                                    \"code\": \"mg\"\r\n                                }\r\n                            }\r\n                        ]\r\n                    }\r\n                ]\r\n            },\r\n            {\r\n                \"status\": \"on-hold\",\r\n                \"medicationReference\": {\r\n                    \"reference\": \"Medication/eGqlUOle7zUr849XGeFXxBuxHv2r.2mMLhElNNmggn3V2yMY6Hqrqq26FevCHgCxn3\",\r\n                    \"display\": \"lisinopril (PRINIVIL,ZESTRIL) tablet\"\r\n                },\r\n                \"encounter\": {\r\n                    \"identifier\": {\r\n                        \"use\": \"usual\",\r\n                        \"system\": \"urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8\",\r\n                        \"value\": \"8062\"\r\n                    },\r\n                    \"display\": \"Office Visit\"\r\n                },\r\n                \"authoredOn\": \"2015-02-09T14:28:57Z\",\r\n                \"requester\": {\r\n                    \"extension\": [\r\n                        {\r\n                            \"valueCode\": \"unknown\",\r\n                            \"url\": \"http://hl7.org/fhir/StructureDefinition/data-absent-reason\"\r\n                        }\r\n                    ]\r\n                },\r\n                \"recorder\": {\r\n                    \"reference\": \"Practitioner/erqn5oyiA9.LpVQkQ2Ulmgg3\",\r\n                    \"type\": \"Practitioner\",\r\n                    \"display\": \"Nurse Family Medicine, RN\"\r\n                },\r\n                \"courseOfTherapyType\": \"Short course (acute) therapy\",\r\n                \"dosageInstruction\": [\r\n                    {\r\n                        \"text\": \"Take 10 mg by mouth daily., Historical Med\",\r\n                        \"patientInstruction\": \"Take 10 mg by mouth daily.\",\r\n                        \"timing\": {\r\n                            \"repeat\": {\r\n                                \"timeOfDay\": [\r\n                                    \"09:00:00\"\r\n                                ]\r\n                            },\r\n                            \"code\": {\r\n                                \"text\": \"0900\"\r\n                            }\r\n                        },\r\n                        \"asNeededBoolean\": false,\r\n                        \"route\": {\r\n                            \"coding\": [\r\n                                {\r\n                                    \"system\": \"http://snomed.info/sct\",\r\n                                    \"code\": \"260548002\",\r\n                                    \"display\": \"Oral (qualifier value)\"\r\n                                },\r\n                                {\r\n                                    \"system\": \"urn:oid:1.2.840.114350.1.13.0.1.7.4.798268.7025\",\r\n                                    \"code\": \"15\",\r\n                                    \"display\": \"Oral\"\r\n                                }\r\n                            ],\r\n                            \"text\": \"Oral\"\r\n                        },\r\n                        \"doseAndRate\": [\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"ordered\",\r\n                                            \"display\": \"ordered\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"ordered\"\r\n                                },\r\n                                \"doseQuantity\": {\r\n                                    \"value\": 10,\r\n                                    \"unit\": \"mg\",\r\n                                    \"system\": \"http://unitsofmeasure.org\",\r\n                                    \"code\": \"mg\"\r\n                                }\r\n                            }\r\n                        ]\r\n                    }\r\n                ]\r\n            }\r\n        ],\r\n        \"completed\": [\r\n            {\r\n                \"status\": \"completed\",\r\n                \"medicationReference\": {\r\n                    \"reference\": \"Medication/exHanMETCXgFAY3EgA6vg-38AsafuhyCQtQVIDNBaGc1XXrD95TKTypeotFI4ZGHN3\",\r\n                    \"display\": \"sodium chloride 0.9 % bolus\"\r\n                },\r\n                \"encounter\": {\r\n                    \"reference\": \"Encounter/eeVXp9HwWKBIxXEavPj-jsA3\",\r\n                    \"identifier\": {\r\n                        \"use\": \"usual\",\r\n                        \"system\": \"urn:oid:1.2.840.114350.1.13.0.1.7.3.698084.8\",\r\n                        \"value\": \"8057\"\r\n                    },\r\n                    \"display\": \"Hospital Encounter\"\r\n                },\r\n                \"authoredOn\": \"2015-02-19T21:59:25Z\",\r\n                \"requester\": {\r\n                    \"reference\": \"Practitioner/e9s-IdXQOUVywHOVoisd6xQ3\",\r\n                    \"type\": \"Practitioner\",\r\n                    \"display\": \"Attending Physician Inpatient, MD\"\r\n                },\r\n                \"recorder\": {\r\n                    \"reference\": \"Practitioner/e9s-IdXQOUVywHOVoisd6xQ3\",\r\n                    \"type\": \"Practitioner\",\r\n                    \"display\": \"Attending Physician Inpatient, MD\"\r\n                },\r\n                \"courseOfTherapyType\": \"Short course (acute) therapy\",\r\n                \"dosageInstruction\": [\r\n                    {\r\n                        \"text\": \"500 mL, Intravenous, at 250 mL/hr, Administer over 2 Hours, Once, On Thu 2/19/15 at 1600, For 1 dose\",\r\n                        \"timing\": {\r\n                            \"repeat\": {\r\n                                \"boundsPeriod\": {\r\n                                    \"start\": \"2015-02-19T22:00:00Z\",\r\n                                    \"end\": \"2015-02-20T05:44:00Z\"\r\n                                },\r\n                                \"count\": 1,\r\n                                \"duration\": 2,\r\n                                \"durationUnit\": \"h\"\r\n                            },\r\n                            \"code\": {\r\n                                \"text\": \"Once\"\r\n                            }\r\n                        },\r\n                        \"asNeededBoolean\": false,\r\n                        \"route\": {\r\n                            \"coding\": [\r\n                                {\r\n                                    \"system\": \"http://snomed.info/sct\",\r\n                                    \"code\": \"418114005\",\r\n                                    \"display\": \"Intravenous central route (qualifier value)\"\r\n                                },\r\n                                {\r\n                                    \"system\": \"urn:oid:1.2.840.114350.1.13.0.1.7.4.798268.7025\",\r\n                                    \"code\": \"11\",\r\n                                    \"display\": \"Intravenous\"\r\n                                }\r\n                            ],\r\n                            \"text\": \"Intravenous\"\r\n                        },\r\n                        \"doseAndRate\": [\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"calculated\",\r\n                                            \"display\": \"calculated\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"calculated\"\r\n                                },\r\n                                \"doseQuantity\": {\r\n                                    \"value\": 500,\r\n                                    \"unit\": \"mL\",\r\n                                    \"system\": \"http://unitsofmeasure.org\",\r\n                                    \"code\": \"mL\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"admin-amount\",\r\n                                            \"display\": \"admin-amount\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"admin-amount\"\r\n                                },\r\n                                \"doseQuantity\": {\r\n                                    \"value\": 500,\r\n                                    \"unit\": \"mL\",\r\n                                    \"system\": \"http://unitsofmeasure.org\",\r\n                                    \"code\": \"mL\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"type\": {\r\n                                    \"coding\": [\r\n                                        {\r\n                                            \"system\": \"http://epic.com/CodeSystem/dose-rate-type\",\r\n                                            \"code\": \"ordered\",\r\n                                            \"display\": \"ordered\"\r\n                                        }\r\n                                    ],\r\n                                    \"text\": \"ordered\"\r\n                                },\r\n                                \"doseQuantity\": {\r\n                                    \"value\": 500,\r\n                                    \"unit\": \"mL\",\r\n                                    \"system\": \"http://unitsofmeasure.org\",\r\n                                    \"code\": \"mL\"\r\n                                }\r\n                            }\r\n                        ]\r\n                    }\r\n                ]\r\n            }\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/openepic/medication-request-save-orders/:userId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"openepic",
+						"medication-request-save-orders",
+						":userId"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "6690cda8b8d1c23755cd86c0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AllergyIntolerance.Search",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "epicAccessToken",
+						"value": "{{epicAccessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/openepic/search-allergy-intolerance?patient=egqBHVfQlt4Bw3XGXoxVxHg3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"openepic",
+						"search-allergy-intolerance"
+					],
+					"query": [
+						{
+							"key": "patient",
+							"value": "egqBHVfQlt4Bw3XGXoxVxHg3"
+						},
+						{
+							"key": "clinical-status",
+							"value": "active",
+							"disabled": true
+						},
+						{
+							"key": "category",
+							"value": "environment",
+							"disabled": true
+						},
+						{
+							"key": "code",
+							"value": "intolerance",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NutritionOrder.Search (R4)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "epicAccessToken",
+						"value": "{{epicAccessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/openepic/search-nutrition-order-from-epic?patient=eq081-VQEgP8drUUqCWzHfw3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"openepic",
+						"search-nutrition-order-from-epic"
+					],
+					"query": [
+						{
+							"key": "patient",
+							"value": "eq081-VQEgP8drUUqCWzHfw3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Diagnostic Report From Epic",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "epicAccessToken",
+						"value": "{{epicAccessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/openepic/search-diagnostic-report-from-epic?patient=eq081-VQEgP8drUUqCWzHfw3&subject&identifier&date&category&code",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"openepic",
+						"search-diagnostic-report-from-epic"
+					],
+					"query": [
+						{
+							"key": "patient",
+							"value": "eq081-VQEgP8drUUqCWzHfw3"
+						},
+						{
+							"key": "subject",
+							"value": null
+						},
+						{
+							"key": "identifier",
+							"value": null
+						},
+						{
+							"key": "date",
+							"value": null
+						},
+						{
+							"key": "category",
+							"value": null
+						},
+						{
+							"key": "code",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Latest Encounter",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "epicAccessToken",
+						"value": "{{epicAccessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/openepic/fetch-latest-encounter?patient=eXFljJT8WxVd2PjwvPAGR1A3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"openepic",
+						"fetch-latest-encounter"
+					],
+					"query": [
+						{
+							"key": "patient",
+							"value": "eXFljJT8WxVd2PjwvPAGR1A3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Document Reference Create Clinical Notes",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "epicAccessToken",
+						"value": "{{epicAccessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"resourceType\": \"DocumentReference\",\r\n  \"docStatus\": \"final\",\r\n  \"type\": {\r\n    \"coding\": [\r\n      {\r\n        \"system\": \"http://loinc.org\",\r\n        \"code\": \"11488-4\",\r\n        \"display\": \"Consultation Note\"\r\n      }\r\n    ],\r\n    \"text\": \"Consultation Note\"\r\n  },\r\n  \"subject\": {\r\n    \"reference\": \"Patient/eXFljJT8WxVd2PjwvPAGR1A3\"\r\n  },\r\n  \"content\": [\r\n    {\r\n      \"attachment\": {\r\n        \"contentType\": \"text/plain\",\r\n        \"data\": \"TG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNlY3RldHVyIGFkaXBpc2NpbmcgZWxpdC4gVml2YW11cyBydXRydW0gZWxpdCBlZ2V0IG5lcXVlIG1vbGVzdGllLCBub24gbHVjdHVzIG9kaW8gcGhhcmV0cmEuIEluIG1hdHRpcyBhIG9yY2kgYXQgcGVsbGVudGVzcXVlLiBFdGlhbSBibGFuZGl0IGVsZW1lbnR1bSBkaWduaXNzaW0uIE1vcmJpIGNvbnZhbGxpcyBwdXJ1cyBzaXQgYW1ldCBsb3JlbSBjb25ndWUgY29uZGltZW50dW0uIERvbmVjIGVmZmljaXR1ciB0b3J0b3IgdXQgY29uc2VxdWF0IGNvbmd1ZS4gTW9yYmkgZWxlaWZlbmQgY29udmFsbGlzIG9yY2kgZXQgdHJpc3RpcXVlLiBNYXVyaXMgbWFnbmEgZGlhbSwgYWNjdW1zYW4gdXQgcGxhY2VyYXQgZXUsIG1heGltdXMgaW4gcmlzdXMuIFBoYXNlbGx1cyBub24gbWV0dXMgdmVsIG1hdXJpcyBwb3J0dGl0b3IgdmFyaXVzLiBOdWxsYW0gZWdldCBsYWN1cyBjb25ndWUsIGx1Y3R1cyBsaWJlcm8gc2NlbGVyaXNxdWUsIHBvcnRhIG1pLiBEdWlzIGVsZW1lbnR1bSBsYWN1cyBmYWNpbGlzaXMgZmVsaXMgaW50ZXJkdW0sIHZpdGFlIHZlc3RpYnVsdW0gbWkgdWxsYW1jb3JwZXIuIE1hdXJpcyBsb2JvcnRpcyBncmF2aWRhIGxvYm9ydGlzLiBJbnRlZ2VyIGluIGZhY2lsaXNpcyBsb3JlbSwgYSBibGFuZGl0IGVyb3MuIERvbmVjIHRlbXBvciBqdXN0byBzaXQgYW1ldCBudWxsYSBtYXhpbXVzIGxhY2luaWEu\"\r\n      }\r\n    }\r\n  ],\r\n  \"context\": {\r\n    \"encounter\": [{\r\n            \"reference\": \"Encounter/eajyq3tHTNbfPFZexvvMthA3\"\r\n        }]\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/openepic/doc-ref-create-clinical-notes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"openepic",
+						"doc-ref-create-clinical-notes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Latest Clinical Note",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "epicAccessToken",
+						"value": "{{epicAccessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/openepic/fetch-latest-clinical-note?category=clinical-note&date=&docstatus=&encounter=&patient=eXFljJT8WxVd2PjwvPAGR1A3&period=&subject=&type=",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"openepic",
+						"fetch-latest-clinical-note"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "clinical-note"
+						},
+						{
+							"key": "date",
+							"value": ""
+						},
+						{
+							"key": "docstatus",
+							"value": ""
+						},
+						{
+							"key": "encounter",
+							"value": ""
+						},
+						{
+							"key": "patient",
+							"value": "eXFljJT8WxVd2PjwvPAGR1A3"
+						},
+						{
+							"key": "period",
+							"value": ""
+						},
+						{
+							"key": "subject",
+							"value": ""
+						},
+						{
+							"key": "type",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ1cm46b2lkOmZoaXIiLCJjbGllbnRfaWQiOiIxMTZmNzI3ZC1jMjdkLTRjZDktYWJjZC0zNGM5NjZjNjBjYTEiLCJlcGljLmVjaSI6InVybjplcGljOk9wZW4uRXBpYy1jdXJyZW50IiwiZXBpYy5tZXRhZGF0YSI6IndDLUxWWEMzM2Q2THNrUEVuV0ZEQU1reW1wQmxka0oxSjBtUVktVFNMS2tYc1NKSXZ4YmN3NHlQQXdKY1cwM2k5LTBfMFowQnhEUnMzU2V6VU94ZUI1MU5wTHIzVjIzZUNKc1c5SFc3aHBweGoxaGx5Q2VoaDJDSmJuaGVwa3dOIiwiZXBpYy50b2tlbnR5cGUiOiJhY2Nlc3MiLCJleHAiOjE3MjM2MTQ5NzksImlhdCI6MTcyMzYxMTM3OSwiaXNzIjoidXJuOm9pZDpmaGlyIiwianRpIjoiZDdmZGJhYzMtOTQzZi00NTZiLTlmYzEtZGI2MTdhMzBjZDExIiwibmJmIjoxNzIzNjExMzc5LCJzdWIiOiJldk5wLUtoWXdPT3FBWm4xcFoyZW51QTMifQ.GZdnQl6TPZs6oVdI4IhYbUI__YfJ12nVD1DcsiKtLet0lK5Isd60WgrZSONM-1ejNTtJRzgP-Zx43HrTGmRyxnbWwNgD43JmVOPgaWyg-n2RpLIt1JE4TfhybaJek8JihYjWZcUo7MOWW5hfc1pe2q5b7_Sog6RFvuSrEfBnBcYibukIOkxoRYtL2GBCsKWoRh6wDM4vpl5vIu5OxwWO6O3QfgSl_pMdtW1_xzKfCNyezQ-OS4TNBRyrtADr19X2JUkZtobybsAYbhL8WD4r8IRg9j9E19xrCPRu5mulWdPweo9dnAy6vIK2RX-3qC9fGNRqRTdJ4XyF2T1iibU3IA",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "epicAccessToken",
+			"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ1cm46b2lkOjEuMi44NDAuMTE0MzUwLjEuMTMuMC4xLjcuMy42ODg4ODQuMTAwIiwiY2xpZW50X2lkIjoiMTE2ZjcyN2QtYzI3ZC00Y2Q5LWFiY2QtMzRjOTY2YzYwY2ExIiwiZXBpYy5lY2kiOiJ1cm46ZXBpYzpPcGVuLkVwaWMtY3VycmVudCIsImVwaWMubWV0YWRhdGEiOiJYeDVRQUdIZlVLTXVlS0NneU9DdUdsWXE3YWE4Y19semdJTWxOTE5iNUlKV29NTWtFelpsanhGOTBmUnRxdUN6X0ZtVkFhMzFwcXhUWFlrVnQ0NlVDdmwxT3lCVnR3enowZmNIV1VkQWlwdEN5UDNKZGVQMjdGZmR1VW5NRkFGWiIsImVwaWMudG9rZW50eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI1NDQxMzA5LCJpYXQiOjE3MjU0Mzc3MDksImlzcyI6InVybjpvaWQ6MS4yLjg0MC4xMTQzNTAuMS4xMy4wLjEuNy4zLjY4ODg4NC4xMDAiLCJqdGkiOiIzZjk1NmQxNy0zZmYwLTQ2ZWQtODM1Ni0zYWZhYzQ5MzY4M2QiLCJuYmYiOjE3MjU0Mzc3MDksInN1YiI6ImV2TnAtS2hZd09PcUFabjFwWjJlbnVBMyJ9.m01s9eZucCSan7hikUmD3CqJAfZ_ZIpjbZ1kuWDNf5wCPmaOm4gZM7fkbp6cY4qrm9HHGcm11ViMOhDyqJLxs_vPQOrKBWMZpR-76aJ3FqfNhdJIrrtISgXBI9eVT8572qpPmFp1iFjTlI5GdSqzWQf3H6rYhSg50w2pjp4NbgrYqFdMlgTW2X8gnVSO3tAVpBA6aSUguTYrYxPHWRba4fzxxPHoNuoKpLBz6vJf94bx7FEKq5vqrtkAAPfUuZYNGGGbNLM6v3UiNQ1KCr8eJZf5I1RJFvJFnoYSK0zXpfWa7M5QaOVIyvc_URnOVTFvJehjfWbonDT5zmzoOX9IIQ",
+			"type": "string"
+		}
+	]
+}

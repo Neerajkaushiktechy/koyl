@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-helveticaNeue;
+  }
+  a {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .form-label {
+    @apply text-base text-label mb-2 leading-6 block font-normal;
+  }
+
+  .form-input {
+    @apply rounded-[4px] bg-white px-3 py-[6px] text-input leading-6 w-full text-base font-normal border-[1px] border-outline border-solid font-helveticaNeue h-[38px];
+  }
+
+  .form-input:focus-visible {
+    @apply outline-none;
+  }
+
+  .form-input::placeholder {
+    @apply text-input;
+  }
+
+  .btn-theme {
+    @apply text-base text-white bg-primary px-3 py-[6px] leading-6 rounded font-normal;
+  }
+
+  .btn-border {
+    @apply text-base text-primary bg-transparent border-[1px] border-primary px-3 py-[6px] leading-6 rounded font-normal;
+  }
+
+  .sidebar-menu {
+    @apply text-base text-white mb-4;
+  }
+
+  .sidebar-menu.active {
+    @apply text-primary;
+  }
+
+  .fixed-sidebar {
+    @apply fixed w-[280px] px-[30px] py-[60px] top-0 h-screen z-10 !important;
+  }
+
+  .sidebar-menu-items {
+    @apply hidden;
+  }
+
+  .fixed-sidebar .sidebar-menu-items {
+    @apply block;
+  }
+
+  .main-title {
+    @apply text-2xl sm:text-3xl md:text-[40px] text-text-secondary font-bigola leading-[48px];
+  }
+
+  .badge {
+    @apply text-sm md:text-lg text-white font-bold bg-quinary rounded-[100px] px-4 py-[6px] mr-[6px] mb-[6px];
+  }
+
+  .badge.sm-txt {
+    @apply text-[15px] px-3 py-1 leading-[16px];
+  }
+
+  .card-border {
+    @apply p-6 border-[1px] border-neutral-border rounded-lg bg-white;
+  }
+
+  .card-border.recommended {
+    @apply border-primary bg-primary-l5;
+  }
+
+  .card-border .title {
+    @apply text-lg sm:text-2xl text-text-secondary font-bold;
+  }
+
+  .btn-share {
+    @apply bg-primary px-2 py-[6px] text-sm text-white rounded;
+  }
+  .btn-modal-footer {
+    @apply px-3 py-[8px] text-base text-white rounded;
+  }
+
+  .btn-save {
+    @apply bg-secondary px-2 py-[6px] text-sm text-white rounded;
+  }
+
+  .modal-header h3 {
+    @apply font-bigola text-[28px];
+  }
+
+  .modal-body .form-label {
+    @apply text-lg;
+  }
+
+  .modal-body .form-input {
+    @apply h-12;
+  }
+
+  .custom-checkbox {
+    @apply text-primary h-4 w-4 border-[1px] border-outline border-solid bg-white rounded mr-2;
+  }
+
+  .custom-checkbox:focus {
+    @apply ring-transparent;
+  }
+
+  .accordian-title:first-child {
+    @apply rounded-none !important;
+  }
+
+  .accordian-title:hover {
+    @apply bg-primary-l5 !important;
+  }
+
+  .accordian-title h2 {
+    @apply text-tertiary text-base font-bold flex justify-between items-center;
+  }
+
+  .accordian-title svg {
+    @apply hidden;
+  }
+
+  .accordian-title svg.custom-arrow {
+    @apply block text-primary;
+  }
+
+  .offer-img {
+    @apply w-full mb-[18px] rounded-lg h-[260px] object-cover;
+  }
+
+  .custom-table {
+    @apply rounded-lg border-[1px];
+  }
+
+  .custom-table th {
+    @apply font-bold text-base text-body-color leading-6 p-2 capitalize bg-white text-left whitespace-nowrap;
+  }
+
+  .custom-table th:first-child {
+    @apply rounded-tl-lg;
+  }
+
+  .custom-table th:last-child {
+    @apply rounded-tr-lg;
+  }
+
+  .custom-table td {
+    @apply font-normal text-base text-body-color leading-6 p-2 whitespace-nowrap;
+  }
+  .custom-table tr:nth-child(odd) td {
+    @apply bg-table-stripe;
+  }
+  .custom-pagination ul {
+    @apply mt-0;
+  }
+  .patient-details li {
+    @apply font-normal text-body-color text-base pb-2 mb-2 border-b-[1px] border-neutral-border
+  }
+  .patient-details li:last-child {
+    @apply border-b-0
+  }
+  .patient-details.db-patient-info li:last-child {
+    @apply border-b
+  }
+  .db-patient-info li.margin-b-0 {
+    @apply mb-0
+  }
+
+}
+
+
+.PhoneInputInput {
+  border: 0;
+}
+.PhoneInputInput:focus {
+  border: 0;
+  outline: 0;
+}
+
+.custom-form-input.react-tel-input .form-control {
+  padding-left: 36px;
+  border: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.custom-form-input.react-tel-input .flag-dropdown {
+  border: 0;
+  left: 0;
+}
+
+.custom-form-input.react-tel-input .form-control:focus {
+  --tw-ring-color: transparent;
+}
+
+

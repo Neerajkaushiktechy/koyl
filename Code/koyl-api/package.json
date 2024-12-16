@@ -1,0 +1,77 @@
+{
+  "name": "koyl-api",
+  "version": "0.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=16.20.1"
+  },
+  "scripts": {
+    "start": "DEBUG=http node ./dist/index.js",
+    "dev": "DEBUG=http nodemon ./src/index.js --exec babel-node",
+    "debug": "node --inspect-brk ./dist/index.js",
+    "build": "./node_modules/.bin/babel ./src -d ./dist --source-maps",
+    "serve": "node dist/index.js",
+    "features": "DEBUG=http NODE_ENV=test nodemon ./src/index.js --exec babel-node",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ]
+  },
+  "dependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/node": "^7.12.10",
+    "@babel/preset-env": "^7.6.2",
+    "axios": "^1.7.2",
+    "azure-sb": "^0.11.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-import-export": "^1.0.2",
+    "babel-preset-stage-2": "^6.24.1",
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "cron": "^1.7.1",
+    "crypto-js": "^4.2.0",
+    "debug": "~2.6.9",
+    "dotenv": "^6.2.0",
+    "express": "~4.17.1",
+    "helmet": "^3.15.1",
+    "jsonwebtoken": "^9.0.2",
+    "lodash": "^4.17.21",
+    "minimist": "1.2.7",
+    "mongodb": "^6.7.0",
+    "mongoose": "^8.4.3",
+    "morgan": "~1.9.0",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^6.9.14",
+    "qs": "^6.12.3",
+    "twilio": "^5.2.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "^11.0.0-beta.2",
+    "eslint": "^7.17.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^22.5.1",
+    "husky": "^3.0.5",
+    "jest": "^26.6.3",
+    "jest-cli": "^26.6.3",
+    "jest-cucumber": "^3.0.0",
+    "jest-image-snapshot": "^4.3.0",
+    "jest-junit": "^6.4.0",
+    "jest-puppeteer": "^4.4.0",
+    "nodemon": "^2.0.7",
+    "puppeteer": "^1.20.0",
+    "supertest": "^4.0.2"
+  }
+}

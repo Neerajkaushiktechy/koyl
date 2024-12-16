@@ -1,0 +1,48 @@
+version: '3.2'
+services:
+  testdb:
+    image: postgres:10.6
+    environment:
+      - POSTGRES_DB=perspectives_test
+      - POSTGRES_USER=sense-dev
+      - POSTGRES_PASSWORD=mypassword
+    ports:
+      - "5434:5432"
+  stub-auth:
+    restart: always
+    image: perspectives.azurecr.io/stub-auth:dev-latest
+    depends_on:
+      - perspectives-api
+    ports:
+      - "3002:3002"
+  perspectives-frontend:
+    restart: always
+    image: perspectives.azurecr.io/perspectives-frontend:dev-latest
+    depends_on: 
+      - stub-auth
+    ports:
+      - "9000:9000"
+  perspectives-api:
+    restart: always
+    build: .
+    depends_on: 
+      - testdb
+    environment:
+      - PORT=4000
+      - DB_HOST=testdb
+      - DB_PORT=5432
+      - AUTH_CLIENT_ID=test
+      - AUTH_CLIENT_SECRET=test
+      - REDIRECT_URI=http://perspectives-frontend:9000/sign-in
+      - AUTH_ACCESS=http://stub-auth:3002/ofisidd/api/access
+      - AUTH_MOBILE_ACCESS=test
+      - GUM_URL=test
+      - GUM_USERNAME=test
+      - GUM_PASSWORD=test
+      - NODE_TLS_REJECT_UNAUTHORIZED=0
+      - DEBUG=true
+      - APP_INSIGHTS_INSTRUMENTATION_KEY=false
+    ports:
+      - "5000:5000"
+      
+      
