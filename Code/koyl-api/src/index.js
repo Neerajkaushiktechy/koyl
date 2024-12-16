@@ -24,7 +24,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["http://127.0.0.1:3000", "http://localhost:3000","https://dashboard.koyl.io"],
+    origin: ["http://127.0.0.1:3000", "http://localhost:3000","https://koyl.techbitsolution.com"],
     credentials: true,
     exposedHeaders: ["Set-Cookie"],
   })
